@@ -1,0 +1,316 @@
+{% import "bootstrap/wtf.html" as wtf%}
+{% extends 'base.html' %}
+
+{% block title %}
+Portfolio
+{% endblock %}
+
+{% block active5%}
+active
+{% endblock %}
+
+{% block body%}
+<div class="background__main2"></div>
+<div class=" position__rel" style="background-image: url(/static/img/backgroundWhite.png);background-size: cover; height: 100vh;">
+  <div class="row  m0p0 " >
+
+    <div class="col-12 m0p0">
+        <!-- TradingView Widget BEGIN -->
+   <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "S&P 500"
+      },
+      {
+        "proName": "FOREXCOM:NSXUSD",
+        "title": "Nasdaq 100"
+      },
+      {
+        "proName": "FX_IDC:EURUSD",
+        "title": "EUR/USD"
+      },
+      {
+        "description": "DOW Jones",
+        "proName": "FOREXCOM:DJI"
+      },
+      {
+        "description": "Tesla Inc.",
+        "proName": "NASDAQ:TSLA"
+      },
+      {
+        "description": "NIO INC",
+        "proName": "NYSE:NIO"
+      },
+      {
+        "description": "SFOR otc pink",
+        "proName": "OTC:SFOR"
+      },
+      {
+        "description": "Amazon com inc",
+        "proName": "NASDAQ:AMZN"
+      },
+      {
+        "description": "AMD inc.",
+        "proName": "NASDAQ:AMD"
+      },
+      {
+        "description": "Apple inc.",
+        "proName": "NASDAQ:AAPL"
+      }
+    ],
+    "showSymbolLogo": true,
+    "colorTheme": "light",
+    "isTransparent": true,
+    "displayMode": "adaptive",
+    "locale": "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+    </div>
+    <div class="col-lg-12 m0p0 d-flex justify-content-center" style="padding-bottom:70px; ">
+        <div class="col-lg-10 m0p0 mb-4 ">
+            <div class="col-lg-12 m0p0">
+                <h4 class="text-center text-uppercase pt-1">
+                    My portfolio
+                    <input type="hidden" id="csrf" value="{{ csrf_token() }}">
+                </h4>
+            </div>
+            
+            <div class="col-12  m0p0 bg-light">
+                <div class="col-12 m0p0 d-flex justify-content-start pt-3 pb-3">
+                    <div class="col-lg-12  d-flex ">
+                       
+                            <p class="m0p0 p-2 ml-2">
+                                <b>
+                                    Add symbol: 
+                                </b>
+                            </p>
+                            <div class="col m0p0">
+                                <input autocomplete="off"  type="text" id="autocomplete" class="m0p0 col-12 input_1 border p-1" placeholder="{{ticker}}">
+                            </div>
+                            
+                       
+                    </div>
+                </div>
+                <div class="col-12 ">
+                    <div class="col-12 m0p0 " id="portfolio__chart">
+                        <div class="tradingview-widget-container">
+                            <div id="tradingview_42235"></div>
+            
+                            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                            <script type="text/javascript">
+            
+                                width = document.getElementById('tradingview_42235').offsetWidth
+                                height = width * 0.25
+
+                                if ( "{{ticker}}" == "SFOR") {
+                            new TradingView.widget(
+                            {
+                                "width": width,
+                                "height": height,
+                                "symbol": "OTC:{{ticker}}",
+                                "interval": "D",
+                                "timezone": "America/New_York",
+                                "theme": "light",
+                                "style": "1",
+                                "locale": "en",
+                                "toolbar_bg": "#f1f3f6",
+                                "enable_publishing": false,
+                                "withdateranges": true,
+                                "hide_side_toolbar": true,
+                                "hide_top_toolbar": true,
+                                "hide_legend": false,
+                                "allow_symbol_change": false,
+                                "container_id": "tradingview_42235"
+                            }
+                        );
+                        }
+                        else {
+                            console.log('{{ticker}}')
+                            new TradingView.widget(
+                            {
+                                "width": width,
+                                "height": height,
+                                "symbol": "{{ticker}}",
+                                "interval": "D",
+                                "timezone": "America/New_York",
+                                "theme": "light",
+                                "style": "1",
+                                "locale": "en",
+                                "toolbar_bg": "#f1f3f6",
+                                "enable_publishing": false,
+                                "withdateranges": true,
+                                "hide_side_toolbar": true,
+                                "hide_top_toolbar": true,
+                                "hide_legend": false,
+                                "allow_symbol_change": false,
+                                "container_id": "tradingview_42235"
+                            }
+                        );
+                        }
+            
+                                document.write(Object.values(TradingView.widget))
+            
+                            </script>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-12 d-flex m0p0 mt-3 pb-3" style="border-top:1px solid #dee2e6">
+                        
+                        <div  style="position: absolute; top: -22px; left:calc(50% - 15px);">
+                            <a class=" border-0 " id="arrow__top__portfolio">
+                                <img src="{{url_for('static', filename='img/arrow/arrow-top.svg')}}" width="30px" height="20px" alt="arrow_top">
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-12 m0p0 portfolio__table" id="portfolio__table" >
+                            <table class="table table-hover table-sm m0p0 " >
+                                <thead >
+                                    <th scope="col" class=" align-middle m0p0">Symbol</th>
+                                    <th scope="col" class="m0p0">Last price</th>
+                                    <th scope="col" class="m0p0">Value Chng(%)</th>
+                                    <th scope="col" class="m0p0">Analytic report</th>
+                                    <th scope="col" class="m0p0">News report</th>
+                                    <th scope="col" class="m0p0 align-middle">Option</th>
+                                </thead>
+                                <tbody >
+                                    
+                                    {% for alert, t_data in tickers %}
+                                    <tr>
+                                        <th class=" text-uppercase" id='tick_{{alert.id}}' name="ticker">
+                                            {{ alert.symbols }}
+                                        </th>
+                                        <td class=" text-uppercase" id="price__{{alert.id}}" name="price">
+                                           {{ t_data.last_price }}
+                                        </td>
+                                        <td class=" text-uppercase" id="value__{{alert.id}}" name="chng">
+                                            {{ t_data.value_change }}({{ t_data.percent_change }})%
+                                        </td>
+                                        <td class="text-center text-uppercase">
+
+                                        </td>
+                                        <td class="text-center text-uppercase" >
+                                            
+                                        </td>
+                                        <td>
+    
+    
+                                            <button class="border-0" style="width: max-content; background-color: rgba(150, 150, 150, 0)">
+                                                <img src="{{url_for('static',filename='img/icons/Vector_last.svg')}}" width="15px" alt="kolokol" >
+                                                <input type="hidden" name="{{ alert.enabled }}">
+                                            </button>
+                                            <button class="border-0 click__del" id="butt__del__{{alert.id}}" name="{{alert.id}}" style="background-color: rgba(150, 150, 150, 0)">
+                                                <span>
+                                                    X
+                                                </span>
+                                            </button>
+                                           
+                                           
+    
+                                        </td>
+                                    </tr>
+                                   
+                                      {% endfor %}
+    
+                                      
+                                       
+                                    
+    
+                                  
+                                    
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+ 
+  </div>
+</div>
+
+
+<!-- <script type="text/javascript">
+
+    let priceData = '{{ticker}}';
+    let token = 'f84b7e7fac1b4638aabd8b8a280c6dda';
+    
+    let url= 'https://api.twelvedata.com/price?symbol='+priceData+'&apikey='+token;
+    console.log(url);
+    $.get(url,function(data){
+       let data_price = data['price'];
+        
+            $('#portfolio__val').html(data_price);
+            console.log(data)
+        
+        
+    } ); 
+
+
+    let url2= 'https://api.twelvedata.com/quote?symbol='+priceData+'&apikey='+token+'&source=docs';
+    
+    $.get(url2,function(data){
+       let data_price = data['change'];
+       let data_chng = data['percent_change'] + '%';
+        if ( data_price < 0) {
+            $('#value__chng').html(data_price+'('+data_chng+')').css('color','red');
+        }
+       else {
+        $('#value__chng').html(data_price+'('+data_chng+')').css('color','green');
+       }
+       
+        
+        
+    } )
+</script>  -->
+
+
+<script type="text/javascript">
+
+// $('input').prop('disabled', true);
+    // if(localStorage.getItem("ticker")!= null) {
+    //     $('#form__for__portfolio').addClass('show').removeClass('no-show');
+    //     // $('input#autocomplete').prop('disabled', true);
+    //     // $('#button__submit__portfolio').on('click', function(){
+    //     //     $('#form__for__portfolio').addClass('no-show').removeClass('show');
+    //     //     $('input#autocomplete').prop('disabled', false);
+    //     //     localStorage.clear();
+    //     // })
+    // }
+    // else {
+    //     $('#form__for__portfolio').addClass('no-show').removeClass('show');
+    //     // $('input#autocomplete').prop('disabled', false);
+    // } 
+
+
+// add color for chng %
+var arr_chng = $('td[name*="chng"]');
+
+
+for(let i=0; i<=arr_chng.length; i++) {
+
+    let x = $(arr_chng[i]).html()
+    x = jQuery.trim(x);
+    let y = x.split('(')
+    
+    if(y[0] > 0) {
+        $(arr_chng[i]).css('color', 'green')
+       
+    }else {
+        $(arr_chng[i]).css('color', 'red')
+    }
+    
+}
+</script>
+ <script type="text/javascript" src="{{ url_for('static', filename='js/autocomplete_portfolio.js')}}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='js/get_price.js')}}"></script>
+{% endblock %}

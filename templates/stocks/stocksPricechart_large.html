@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Price Chart
+{% endblock %}
+
+{% block body%}
+
+    <!-- BACKGROUND TOP-MENU -->
+    <div class="background__main2">
+
+    </div>
+   <!-- ----------  -->
+
+    <div class="container-fluid background__white position__rel m0p0 height__lg" >
+        <div class="row m0p0">
+            <div class="col-12 d-block m0p0">
+                <!-- TradingView Widget BEGIN -->
+   <div class="tradingview-widget-container">
+       <div class="tradingview-widget-container__widget"></div>
+       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+       {
+       "symbols": [
+         {
+           "proName": "FOREXCOM:SPXUSD",
+           "title": "S&P 500"
+         },
+         {
+           "proName": "FOREXCOM:NSXUSD",
+           "title": "Nasdaq 100"
+         },
+         {
+           "proName": "FX_IDC:EURUSD",
+           "title": "EUR/USD"
+         },
+         {
+           "description": "DOW Jones",
+           "proName": "FOREXCOM:DJI"
+         },
+         {
+           "description": "Tesla Inc.",
+           "proName": "NASDAQ:TSLA"
+         },
+         {
+           "description": "NIO INC",
+           "proName": "NYSE:NIO"
+         },
+         {
+           "description": "SFOR otc pink",
+           "proName": "OTC:SFOR"
+         },
+         {
+           "description": "Amazon com inc",
+           "proName": "NASDAQ:AMZN"
+         },
+         {
+           "description": "AMD inc.",
+           "proName": "NASDAQ:AMD"
+         },
+         {
+           "description": "Apple inc.",
+           "proName": "NASDAQ:AAPL"
+         }
+       ],
+       "showSymbolLogo": true,
+       "colorTheme": "light",
+       "isTransparent": true,
+       "displayMode": "adaptive",
+       "locale": "en"
+     }
+       </script>
+     </div>
+     <!-- TradingView Widget END -->
+           </div>
+        </div>
+
+
+        <div class="col col-12 col-lg-12 d-flex justify-content-center m0p0 pt-2">
+                
+            <div class="col-lg-10 d-flex justify-content-center">
+                
+                    <div  style="position: absolute; left: 0; top: 0;">
+                        <a href="/home">home/</a>
+                        <a href="/stocks/pricechart?stock={{ companyTicker }}" style="color: #425800;">stocks/pricechart </a>
+                    </div>
+               
+    
+                <div class="col-lg-6 d-flex p-1" >
+                    <div>
+                        <label class="tickerInput pl-1" for="ticker"> <b>Company Ticker :</b>  </label>
+                    </div>
+                    <div style="width: 100%;">
+                        <input id="autocomplete" class="form-control input_1 shadow1" type="text" name="ticker" style="border-radius:0 0 0 0;width: 100%;border-radius: 5px;"
+                        value="{{ companyTicker }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 d-flex justify-content-center m0p0 pt-2" id="large__graff" style="height:20vh;">
+
+    
+
+            <dib class="col-lg-10 m0p0">
+
+                <a href="/stocks/pricechart?stock={{ companyTicker }}" class="btn   m0p0" style="position: absolute; right: 0px; top: -40px; z-index: 9900; font-size: 30px;"> X </a>
+
+                <div class="tradingview-widget-container">
+                    <div id="tradingview_42235"></div>
+    
+                    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                    <script type="text/javascript">
+                        
+                        width = document.getElementById('tradingview_42235').offsetWidth
+                        height = width * 0.4
+                        if ( "{{ticker}}" == "SFOR") {
+                            new TradingView.widget(
+                            {
+                                "width": width,
+                                "height": height,
+                                "symbol": "OTC:SFOR",
+                                "interval": "D",
+                                "timezone": "America/New_York",
+                                "theme": "light",
+                                "style": "1",
+                                "locale": "en",
+                                "toolbar_bg": "#f1f3f6",
+                                "enable_publishing": false,
+                                "withdateranges": true,
+                                "hide_side_toolbar": true,
+                                "hide_top_toolbar": true,
+                                "hide_legend": false,
+                                "allow_symbol_change": false,
+                                "container_id": "tradingview_42235"
+                            }
+                        );
+                        }
+                        else {
+                           
+                            new TradingView.widget(
+                            {
+                                "width": width,
+                                "height": height,
+                                "symbol": "{{ticker}}",
+                                "interval": "D",
+                                "timezone": "America/New_York",
+                                "theme": "light",
+                                "style": "1",
+                                "locale": "en",
+                                "toolbar_bg": "#f1f3f6",
+                                "enable_publishing": false,
+                                "withdateranges": true,
+                                "hide_side_toolbar": true,
+                                "hide_top_toolbar": true,
+                                "hide_legend": false,
+                                "allow_symbol_change": false,
+                                "container_id": "tradingview_42235"
+                            }
+                        );
+                        }
+                        
+    
+                        document.write(Object.values(TradingView.widget))
+    
+                    </script>
+    
+    
+                    
+                </div>
+            </dib>
+
+        <!-- COments -->
+
+        
+
+
+
+    </div>
+    
+    
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/autocomplete.js')}}"></script>
+    <script type="text/javascript">
+        $('.input_1').click(function(){
+            $(this).val('').change(); 
+        });
+
+        $(document).ready(function(){
+            // $.post('/likee', {comment_id: 6, csrf_token: $("[name='csrf_token']").val()}, function(response){console.log(response)})
+            if ( document.title == 'JYforum') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Stocks Dividends') {
+                let text = $('#table_dividends').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Stock News') {
+                let text = $('#table_news').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Price Chart') {
+                let text = $('#table_price').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Trading Ideas') {
+                let text = $('#table_trading').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Major Holders') {
+                let text = $('#table_major').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Financials') {
+                let text = $('#table_financials').text();
+                $('#span_select').text(text);
+            }
+        });
+    
+    </script>
+{% endblock %}
+
+{% block active2%}
+active
+{% endblock %}

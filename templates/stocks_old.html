@@ -1,0 +1,462 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Stocks
+{% endblock %}
+
+{% block body%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-12 col-lg-1 offset-lg-3 align-middle">
+            <label for="ticker"> Company name: </label>
+        </div>
+
+        <div class="col col-12 col-lg-5 ">
+            <div class="pb-2">
+                <input autocomplete="off" id="autocomplete" class="form-control" type="text" name="ticker" style="border-radius:0 0 0 0;width: 100%;"
+                    value="{{ company }}">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-12 col-lg-6 offset-lg-3 d-lg-none">
+            <div class="tradingview-widget-container">
+                <div id="tradingview_42235"></div>
+
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+
+                    width = document.getElementById('tradingview_42235').offsetWidth
+                    height = width * 1.2
+
+                    new TradingView.widget(
+                        {
+                            "width": width,
+                            "height": height,
+                            "symbol": "{{ ticker }}",
+                            "interval": "D",
+                            "timezone": "America/New_York",
+                            "theme": "light",
+                            "style": "1",
+                            "locale": "en",
+                            "toolbar_bg": "#f1f3f6",
+                            "enable_publishing": false,
+                            "withdateranges": true,
+                            "hide_side_toolbar": true,
+                            "hide_top_toolbar": true,
+                            "hide_legend": false,
+                            "allow_symbol_change": false,
+                            "container_id": "tradingview_42235"
+                        }
+                    );
+
+                    document.write(Object.values(TradingView.widget))
+
+                </script>
+            </div>
+        </div>
+
+        <div class="col col-lg-6 offset-lg-3 align-self-end d-none d-lg-block">
+            <div class="tradingview-widget-container">
+                <div id="tradingview_42236"></div>
+
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+
+                    width = document.getElementById('tradingview_42236').offsetWidth
+                    height = width * 0.6
+
+                    new TradingView.widget(
+                        {
+                            "width": width,
+                            "height": height,
+                            "symbol": "{{ ticker }}",
+                            "interval": "D",
+                            "timezone": "America/New_York",
+                            "theme": "light",
+                            "style": "1",
+                            "locale": "en",
+                            "toolbar_bg": "#f1f3f6",
+                            "enable_publishing": false,
+                            "withdateranges": true,
+                            "hide_side_toolbar": true,
+                            "hide_top_toolbar": true,
+                            "hide_legend": false,
+                            "allow_symbol_change": false,
+                            "container_id": "tradingview_42236"
+                        }
+                    );
+
+                    document.write(Object.values(TradingView.widget))
+
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-12 col-lg-6 offset-lg-3 d-lg-none">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <th colspan="2" class="text-center" style="color: #886F4A;">Share statistics</th>
+                </thead>
+
+                {% for d in fundamentalData[0].values  %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[1]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col col-12 col-lg-6 offset-lg-3 d-lg-none">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <th colspan="2" class="text-center">Dividends and splits</th>
+                </thead>
+
+                {% for d in fundamentalData[1].values  %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[1]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+
+        <div class="col col-lg-3 offset-lg-3 align-self-end d-none d-lg-block">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <th colspan="2" class="text-center">Share statistics</th>
+                </thead>
+
+                {% for d in fundamentalData[0].values  %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[1]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="col col-lg-3 d-none d-lg-block">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <th colspan="2" class="text-center">Dividends and splits</th>
+                </thead>
+
+                {% for d in fundamentalData[1].values  %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[1]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col col-12 col-lg-6 offset-lg-3 ">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="4" class="text-center">Key executives</th>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Title</th>
+                        <th>Pay</th>
+                        <th>Born</th>
+                    </tr>
+                </thead>
+
+                {% for d in fundamentalData[2].values  %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[1]}}</td>
+                    <td>{{d[2]}}</td>
+                    <td>{{d[3]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-12 col-lg-6 offset-lg-3 ">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="5" class="text-center">Earnings estimate</th>
+                    </tr>
+                    <tr>
+                        <th> </th>
+                        <th>Current Qtr</th>
+                        <th>Next Qtr</th>
+                        <th>Current Year</th>
+                        <th>Next Year</th>
+                    </tr>
+                </thead>
+
+                {% for d in fundamentalData[4].values  %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[1]}}</td>
+                    <td>{{d[2]}}</td>
+                    <td>{{d[3]}}</td>
+                    <td>{{d[4]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col col-12 col-lg-6 offset-lg-3 ">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="4" class="text-center">Revenue estimate</th>
+                    </tr>
+                    <tr>
+                        <th> </th>
+                        <th>Current Qtr</th>
+                        <th>Next Qtr</th>
+                        <th>Current Year</th>
+                    </tr>
+                </thead>
+
+                {% for d in fundamentalData[4].values  %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[1]}}</td>
+                    <td>{{d[2]}}</td>
+                    <td>{{d[3]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-12 col-lg-6 offset-lg-3 ">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="2" class="text-center">Major holders</th>
+                    </tr>
+
+                </thead>
+
+                {% for d in fundamentalData[6].values  %}
+                <tr>
+                    <td>{{d[1]}}</td>
+                    <td>{{d[0]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-12 col-lg-6 offset-lg-3 d-none d-lg-block">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="5" class="text-center">Top institutional holders</th>
+                    </tr>
+                    <tr>
+                        <th>Holder</th>
+                        <th>Shares</th>
+                        <th>Date Reported</th>
+                        <th>% Out</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+
+                {% for d in fundamentalData[7].values  %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[1]}}</td>
+                    <td>{{d[2]}}</td>
+                    <td>{{d[3]}}</td>
+                    <td>{{d[4]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="col col-12 col-lg-6 offset-lg-3 d-lg-none">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="3" class="text-center">Top institutional holders</th>
+                    </tr>
+                    <tr>
+                        <th>Holder</th>
+                        <th>Date Reported</th>
+                        <th>% Out</th>
+                    </tr>
+                </thead>
+
+                {% for d in fundamentalData[7].values  %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[2]}}</td>
+                    <td>{{d[3]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-12 col-lg-6 offset-lg-3 d-none d-lg-block">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="5" class="text-center">Top mutual fund holders</th>
+                    </tr>
+                    <tr>
+                        <th>Holder</th>
+                        <th>Shares</th>
+                        <th>Date Reported</th>
+                        <th>% Out</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+
+                {% for d in fundamentalData[8].values  %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[1]}}</td>
+                    <td>{{d[2]}}</td>
+                    <td>{{d[3]}}</td>
+                    <td>{{d[4]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="col col-12 col-lg-6 offset-lg-3 d-lg-none">
+            <table class="table table-hover table-light table-sm" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="3" class="text-center">Top institutional holders</th>
+                    </tr>
+                    <tr>
+                        <th>Holder</th>
+                        <th>Date Reported</th>
+                        <th>% Out</th>
+                    </tr>
+                </thead>
+
+                {% for d in fundamentalData[8].values  %}
+                <tr>
+                    <td>{{d[0]}}</td>
+                    <td>{{d[2]}}</td>
+                    <td>{{d[3]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-12 col-lg-6 offset-lg-3 align-self-end d-lg-none">
+            <div id="stocktwits-widget-news"></div><a href='https://stocktwits.com'
+                style='font-size: 0px;'>Stocktwits</a>
+            <script type="text/javascript"
+                src="https://api.stocktwits.com/addon/widget/2/widget-loader.min.js"></script>
+            <script type="text/javascript">
+                width = document.getElementById('stocktwits-widget-news').offsetWidth
+                STWT.Widget({ container: 'stocktwits-widget-news', symbol: "{{ticker}}", width: width, height: 500, limit: '30', scrollbars: 'true', streaming: 'true', title: 'AAPL Stocktwits Ideas', style: { link_color: '4871a8', link_hover_color: '4871a8', header_text_color: '000000', border_color: 'cecece', divider_color: 'cecece', divider_color: 'cecece', divider_type: 'solid', box_color: 'f5f5f5', stream_color: 'ffffff', text_color: '000000', time_color: '999999' } });
+            </script>
+        </div>
+
+        <div class="col col-12 col-lg-6 offset-lg-3 align-self-end d-none d-lg-block">
+            <div id="stocktwits-widget-news-large"></div><a href='https://stocktwits.com'
+                style='font-size: 0px;'>Stocktwits</a>
+            <script type="text/javascript"
+                src="https://api.stocktwits.com/addon/widget/2/widget-loader.min.js"></script>
+            <script type="text/javascript">
+                width = document.getElementById('stocktwits-widget-news-large').offsetWidth
+                STWT.Widget({ container: 'stocktwits-widget-news-large', symbol: "{{ticker}}", width: width, height: 550, limit: '30', scrollbars: 'true', streaming: 'true', title: 'AAPL Stocktwits Ideas', style: { link_color: '4871a8', link_hover_color: '4871a8', header_text_color: '000000', border_color: 'cecece', divider_color: 'cecece', divider_color: 'cecece', divider_type: 'solid', box_color: 'f5f5f5', stream_color: 'ffffff', text_color: '000000', time_color: '999999' } });
+            </script>
+
+        </div>
+        <!-- end large screen -->
+
+        <!-- start small screen -->
+        <div class="p-3">
+        </div>
+        <div class="col col-12 col-lg-6 offset-lg-3 d-lg-none">
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
+                        {
+                            "symbol": "{{ticker}}",
+                                "width": "100%",
+                                    "height": 450,
+                                        "colorTheme": "light",
+                                            "isTransparent": false,
+                                                "locale": "en"
+                        }
+                    </script>
+            </div>
+        </div>
+        <!-- end small screen -->
+
+        <!-- start lagre screen -->
+        <div class="col col-12 col-lg-6 offset-lg-3 d-none d-lg-block">
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
+                        {
+                            "symbol": "{{ticker}}",
+                                "width": "100%",
+                                    "height": 450,
+                                        "colorTheme": "light",
+                                            "isTransparent": false,
+                                                "locale": "en"
+                        }
+                    </script>
+            </div>
+        </div>
+        <!-- end large screen -->
+
+        <div class="col col-12 col-lg-6 offset-lg-3 align-self-end">
+
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" async>
+                        {
+                            "symbol": "{{ticker}}",
+                                "colorTheme": "light",
+                                    "isTransparent": false,
+                                        "largeChartUrl": "",
+                                            "displayMode": "regular",
+                                                "width": "100%",
+                                                    "height": 750,
+                                                        "locale": "en"
+                        }
+                    </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/autocomplete.js')}}"></script>
+{% endblock %}
+
+{% block active2%}
+active
+{% endblock %}

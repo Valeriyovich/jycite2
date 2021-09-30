@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% block title %}
+Setting
+{% endblock %}
+
+{% block body%}
+
+<div class="background__main2"></div>
+    <div class="container-fluid position__rel" style="height: 100vh;">
+
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <div class="col-lg-10">
+                    <div class="col-lg-12 pt-4 pb-4">
+                        <h2 class="text-uppercase text-center">
+                            Setting
+                        </h2>
+                    </div>
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        
+                        <div class="col-lg-3 border">
+                          <div class="custom-file  mb-3 border">
+                            <div class="col-lg-12">
+                              <div class="col d-flex justify-content-center d-lg-none" style="z-index: 9999;">
+                                <img id="img" src="" class="border rounded-circle" width="150px" height="150px"  >
+                              </div>
+                            </div>
+                            
+                            <div class="d-flex" style="position: relative; top: 170px;">
+                              
+                              <input class="form-control border-0" style="padding: 0 0px 0 0; width: 147px;"   type="file" id="customFile" accept=".txt,image/*"/>
+                              <!-- <input type="file" class="custom-file-input " id="customFile" multiple="multiple" placeholder="Browse" accept=".txt,image/*" style="width: 0;">
+                              <label class="custom-file-label m0p0" for="customFile" style="width: 1px;">
+                                 
+                              </label> -->
+                              <a href="#" class="upload_files  btn btn-sm btn-success ">download file</a>
+                            </div>
+                           
+                            
+                          </div>
+
+                        </div>
+
+
+                        <div class="col-lg-6 border">
+                            <form method="post" class="needs-validation p-5" novalidate>
+                                <input type="hidden" value="{{ csrf_token() }}" name="csrf_token">
+                                
+
+                                
+                                
+
+
+
+
+
+                                <div class="form-row">
+                                  <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">First name</label>
+                                    <input {% if user.f_name %}value="{{ user.f_name }}" disabled {% else %} name="f_name"{% endif %}type="text" class="form-control" id="validationCustom01" placeholder="First name"  required>
+                                    <div class="valid-feedback">
+                                      Looks good!
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3 mb-3">
+                                    <label for="validationCustom02">Last name</label>
+                                    <input {% if user.l_name %}value="{{ user.l_name }}"disabled {% else %} name="l_name"{% endif %}type="text" class="form-control" id="validationCustom02" placeholder="Last name"  required>
+                                    <div class="valid-feedback">
+                                      Looks good!
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    
+                                  </div>
+                                  
+                                </div>
+                                <div class="form-row">
+                                  <div class="col-md-4 mb-3">
+                                    <label for="validationCustom05">Telephone</label>
+                                    <input name="phone" value="{{ user.phone }}" type="tel" class="form-control" id="phone_2" placeholder="Telephone" required>
+                                    <div class="invalid-feedback">
+                                      Please provide a valid telephone.
+                                    </div>
+                                  </div>
+                                  
+                                  
+
+                                  <div class="col-md-4 mb-3">
+                                    <label for="validationCustomUsername">Username</label>
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">
+                                          &lt; &gt;
+                                        </span>
+                                      </div>
+                                      <input name="username" type="text" value="{{ current_user.username }}" value="" class="form-control" id="validationCustomEmail"  placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                                      <div class="invalid-feedback">
+                                        Please choose your Username.
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-md-4 mb-3">
+                                    <label for="validationCustomUsername">E-mail</label>
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">
+                                            @
+                                        </span>
+                                      </div>
+                                      <input name="email" type="email" value="{{ user.email }}" class="form-control" id="validationCustomEmail"  placeholder="E-mail" aria-describedby="inputGroupPrepend" required>
+                                      <div class="invalid-feedback">
+                                        Please choose your e-mail.
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+                                <div class="form-row">
+                                  <div class="col-md-4 mb-3">
+                                    <label for="validationCustom03">City</label>
+                                    <input name="city" value="{{ user.city }}" type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+                                    <div class="invalid-feedback">
+                                      Please provide a valid city.
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="col-md-5 mb-3">
+                                    <label for="validationCustom03">Address</label>
+                                    <input name="address" type="text" class="form-control" value="{{ current_user.address }}" id="validationCustom03" placeholder="Address" required>
+                                    <div class="invalid-feedback">
+                                      Please provide a valid address.
+                                    </div>
+                                  </div>
+
+                                  <div class="col-md-3 mb-3">
+                                    <label for="validationDefault05">Zip</label>
+                                    <input type="text" name="zip" class="form-control" value="{{ current_user.zip }}" id="validationDefault05" placeholder="Zip" required>
+                                  </div>
+
+                                  
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleFormControlTextarea1">About me</label>
+                                  <textarea name="about" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ current_user.about }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                    <label class="form-check-label" for="invalidCheck">
+                                      Agree to terms and conditions
+                                    </label>
+                                    <div class="invalid-feedback">
+                                      You must agree before submitting.
+                                    </div>
+                                  </div>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Submit form</button>
+                              </form>
+                        </div>
+                          
+                          <script>
+                              $("#phone_2").mask("+99(999) 999-9999");
+                          // Example starter JavaScript for disabling form submissions if there are invalid fields
+                          (function() {
+                            'use strict';
+                            window.addEventListener('load', function() {
+                              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                              var forms = document.getElementsByClassName('needs-validation');
+                              // Loop over them and prevent submission
+                              var validation = Array.prototype.filter.call(forms, function(form) {
+                                form.addEventListener('submit', function(event) {
+                                  if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                  }
+                                  form.classList.add('was-validated');
+                                }, false);
+                              });
+                            }, false);
+                          })();
+
+                          $(".upload_files").click(function() {
+
+                              var fd = new FormData(),
+                                  files = $('#customFile')[0].files;
+                              fd.append('file', files[0]);
+                              fd.append('csrf_token', $('[name="csrf_token"]').val());
+                              
+                              let size = files[0].size;
+                              if (size < 5120000) {
+                                $.ajax({
+                                  url: '/user/setting/image',
+                                  type: 'post',
+                                  data: fd,
+                                  contentType: false,
+                                  processData: false,
+                                  success: function(response){
+                                     if(response != 0){
+                                        $("#img").attr("src",response);
+                                        console.log()
+                                        alert(response);
+
+                                        $(".preview img").show(); // Display image element
+                                        $("#img").parent().removeClass('d-lg-none');
+                                     }else{
+                                        alert('file not uploaded');
+                                     }
+                              }})
+                              }else {
+                                alert ('this file weighs more than 5mb')
+                              }
+                              
+                          })
+                          </script>
+                        <div class="col-lg-3 ">
+                          <div>
+                              
+                          </div>
+
+                        </div>
+                          
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+  
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+
+
+	
+    var $body;
+  
+    $(document).ready(function(){
+      $body = $('body');
+  
+      $body
+        .find('.user-phone').each(function(){
+            $(this).mask("+38 (999) 999-99-99", {autoсlear: false});
+        });
+  
+      $body.on('keyup','.user-phone',function(){
+        var phone = $(this),
+            phoneVal = phone.val(),
+            form = $(this).parents('form');
+  
+        if ( (phoneVal.indexOf("_") != -1) || phoneVal == '' ) {
+          form.find('.btn_submit').attr('disabled',true);
+        } else {
+          form.find('.btn_submit').removeAttr('disabled');
+        }
+      });
+  
+    });
+  
+  
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,274 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Financials
+{% endblock %}
+
+{% block body%}
+    <div class="background__main2"></div>
+    <!-- <div class="background__main3"></div> -->
+    <div class="container-fluid position__rel background__white m0p0">
+            <div>
+                 <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "S&P 500"
+      },
+      {
+        "proName": "FOREXCOM:NSXUSD",
+        "title": "Nasdaq 100"
+      },
+      {
+        "proName": "FX_IDC:EURUSD",
+        "title": "EUR/USD"
+      },
+      {
+        "description": "DOW Jones",
+        "proName": "FOREXCOM:DJI"
+      },
+      {
+        "description": "Tesla Inc.",
+        "proName": "NASDAQ:TSLA"
+      },
+      {
+        "description": "NIO INC",
+        "proName": "NYSE:NIO"
+      },
+      {
+        "description": "SFOR otc pink",
+        "proName": "OTC:SFOR"
+      },
+      {
+        "description": "Amazon com inc",
+        "proName": "NASDAQ:AMZN"
+      },
+      {
+        "description": "AMD inc.",
+        "proName": "NASDAQ:AMD"
+      },
+      {
+        "description": "Apple inc.",
+        "proName": "NASDAQ:AAPL"
+      }
+    ],
+    "showSymbolLogo": true,
+    "colorTheme": "light",
+    "isTransparent": true,
+    "displayMode": "adaptive",
+    "locale": "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+            </div>
+      
+            <div class="row m0p0">
+                <div class="col-lg-12  m0p0">
+    
+                    <div class="pt-2 offset-lg-1">
+                        <a href="/home">home/</a>
+                        <a href="#" style="color: #425800;">stocks/ financials </a>
+                    </div>
+    
+                    <div class="col-lg-6 m0p0 d-flex justify-content-center mx-auto" id="select_markets_xl">
+                            <div class="  d-flex justify-content-between  markets__buttons mb-4 mt-4" style="width: 100%;">
+                                <a href="/stocks/pricechart?stock={{ companyTicker }}" class="btn btn-light" id="table_price" role="button">PRICE CHART</a>
+                                <a href="/stocks/tradingideas?stock={{ companyTicker }}" class="btn btn-light" id="table_trading" role="button">TRADING IDEAS</a>
+                                <a href="/stocks/news?stock={{ companyTicker }}" class="btn btn-light" id="table_news" role="button">NEWS</a>
+                                <a href="/stocks/dividends?stock={{ companyTicker }}" class="btn btn-light" id="table_dividends" role="button">DIVIDENDS</a>
+                                <a href="/stocks/majorholders?stock={{ companyTicker }}" class="btn btn-light" id="table_major" role="button">MAJOR HOLDERS</a>
+                                <a href="/stocks/financials?stock={{ companyTicker }}" class="btn btn-light active" id="table_financials" role="button">FINANCIALS</a>
+                               
+                            </div>
+                            
+                    </div>
+    
+    
+                    <div class="col col-12 m0p0 d-flex justify-content-center" id="select_markets" >
+                        <div class="selectlink pt-3"  style="width: 100%;"> 
+                            <div class="btn-group border" style="width: 100%;">
+                                <button type="button" class="btn dropdown-toggle bgcolor border-0 mx-auto " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
+                                    <span id="span_select"> PRICE CHART</span>
+                                </button>
+                                <div class="dropdown-menu " style="width: 100%;">
+                                    <div class="d-flex justify-content-center">
+                                        <a href="/stocks/pricechart?stock={{ companyTicker }}" class="btn btn-" id="table_price" role="button">PRICE CHART</a>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="/stocks/tradingideas?stock={{ companyTicker }}" class="btn" id="table_trading" role="button">TRADING IDEAS</a>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="/stocks/news?stock={{ companyTicker }}" class="btn" id="table_news" role="button">NEWS</a>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="/stocks/dividends?stock={{ companyTicker }}" class="btn btn-light active" id="table_dividends" role="button">DIVIDENDS</a>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="/stocks/majorholders?stock={{ companyTicker }}" class="btn" id="table_major" role="button">MAJOR HOLDERS</a>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="/stocks/financials?stock={{ companyTicker }}" class="btn" id="table_financials" role="button">FINANCIALS</a>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col col-12 col-lg-6 m0p0 mx-auto">
+                    
+                        <div class="d-flex p-1">
+                            <div>
+                                <label class="tickerInput pl-1" for="ticker"> <b>Company Ticker :</b>  </label>
+                            </div>
+                            <div style="width: 100%;">
+                                <input id="autocomplete" class="form-control input_1 shadow1" type="text" name="ticker" style="border-radius:0 0 0 0;width: 100%;border-radius: 5px;"
+                                value="{{ companyTicker }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+                 <!--  tabs big monitors  -->
+        <div class="col-lg-12 d-flex justify-content-center  m0p0 " style="padding-bottom: 130px;">
+            <div class="col-lg-6 m0p0 p-2" style=" height: 52vh; overflow-y: scroll;">
+                <div class="col-lg-12 m0p0 " style="background: white; border-radius: 8px;">
+    
+                <div class="col m0p0">
+                    <table class="table table-hover m0p0 " style="width:100%">
+                        <thead class="">
+                            <tr style="font-size: 30px; line-height: 36px; font-weight: 700;">
+                                <th colspan="5" class="text-center">Earnings estimate</th>
+                            </tr>
+                            <tr style="font-weight: 700; font-size: 18px; line-height: 22px;">
+                                <th> </th>
+                                <th>Current Qtr</th>
+                                <th>Next Qtr</th>
+                                <th>Current Year</th>
+                                <th>Next Year</th>
+                            </tr>
+                        </thead>
+        
+                        {% for d in revenues[0].values  %}
+                        <tr style="line-height: 22px;font-size: 18px; font-weight: 500px;" >
+                            <td>{{d[0]}}</td>
+                            <td>{{d[1]}}</td>
+                            <td>{{d[2]}}</td>
+                            <td>{{d[3]}}</td>
+                            <td>{{d[4]}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+           
+       
+        
+                <div class="row m0p0">
+                    <div class="col ">
+                        <table class="table table-hover " style="width:100%">
+                        <thead class="">
+                            <tr style="font-size: 30px; line-height: 36px; font-weight: 700;">
+                                <th colspan="4" class="text-center">Revenue estimate</th>
+                            </tr>
+                            <tr style="font-weight: 700; font-size: 18px; line-height: 22px;">
+                                <th> </th>
+                                <th>Current Qtr</th>
+                                <th>Next Qtr</th>
+                                <th>Current Year</th>
+                            </tr>
+                        </thead>
+        
+                        {% for d in revenues[1].values  %}
+                        <tr>
+                            <td>{{d[0]}}</td>
+                            <td>{{d[1]}}</td>
+                            <td>{{d[2]}}</td>
+                            <td>{{d[3]}}</td>
+                        </tr>
+                        {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+                <!-- TradingView Widget BEGIN -->
+            <div class="col-lg-12 mt-5 d-lg-block d-none m0p0" >
+                <div class="tradingview-widget-container m0p0">
+                    <div class="tradingview-widget-container__widget "></div>
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" async>
+                            {
+                                "symbol": "{{ticker}}",
+                                    "colorTheme": "light",
+                                        "isTransparent": false,
+                                            "largeChartUrl": "",
+                                                "displayMode": "regular",
+                                                    "width": "100%",
+                                                        "height": 650,
+                                                            "locale": "en"
+                            }
+                        </script>
+                </div>
+                  
+            </div>    
+                
+            
+            </div>    
+            
+        </div>
+
+        <!-- COments -->
+
+        {% include 'stocks/commentSection.html' %}
+
+    </div>
+
+    
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/autocomplete.js')}}"></script>
+    <script type="text/javascript">
+        $('.input_1').click(function(){
+            $(this).val('').change(); 
+        });
+        $(document).ready(function(){
+            if ( document.title == 'JYforum') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Stocks Dividends') {
+                let text = $('#table_dividends').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Stock News') {
+                let text = $('#table_news').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Price Chart') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Trading Ideas') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Major Holders') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Financials') {
+                let text = $('#table_financials').text();
+                $('#span_select').text(text);
+            }
+        });
+    
+    </script>
+{% endblock %}
+
+{% block active2%}
+active
+{% endblock %}

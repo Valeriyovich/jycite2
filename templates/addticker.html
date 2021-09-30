@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Page not fount
+{% endblock %}
+
+{% block body%}
+<div class="row m0p0" >
+    <div class="col-lg-12 m0p0 text-center" style="padding-top: 100px; height: 100vh;">
+        <h3 class="text-danger">Add Ticker's</h3>
+        <div>
+            <form action="/admin/addticker" method="POST">
+                <div>
+                    <input type="text" placeholder="Ticker">
+                    <input type="text" placeholder="Name Company"> 
+                </div>
+
+                <div class="pt-2">
+                    <button class="btn btn-success" type="submit">
+                        ok
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

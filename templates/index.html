@@ -1,0 +1,869 @@
+{% import "bootstrap/wtf.html" as wtf%}
+{% extends 'base.html' %}
+
+{% block title %}
+J&Y Investing
+{% endblock %}
+
+{% block active1%}
+active
+{% endblock %}
+
+{% block body %}
+
+
+
+
+<div >
+ 
+
+    <div class="row m0p0">
+        <div class="background_main2" style="position: relative;">
+            <div class="row m0p0 align-items-center justify-content-between info__block"  id="daily__markets__news" style="height: 100%;" >
+                <div class="col-lg-12 m0p0 d-flex justify-content-center">
+                    <div class="col-lg-10 m0p0 d-flex justify-content-between">
+                        
+                        <div class="col-xl-8 d-flex m0p0 daily__markets__news"  style="overflow: hidden;">
+                            <div class="d-block active daily__news ">
+                              <div>
+                                  <div>
+                                    <a href="{{news[0].link}}">
+                                      <b > Daily Markets: </b> 
+                                      <span >
+                                        {{news[0].title}}
+                                      </span>
+                                    </a>
+                                  </div>
+                              </div>
+
+                              <div class=" d-flex justify-content-end mt-5 " >
+                                <a href="" class=" border-0 button__darkgreen m0p0 mr-5 d-flex" style="position: relative;">
+                                    <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                                        <p class= " m0p0 ">learn more</p>
+                                    </div>
+                                    <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                                    <div class="bg__color1">
+                                
+                                    </div>
+                                </a>
+                        
+                              </div>
+                            </div>
+
+                            <div class="d-none daily__news">
+                              <div>
+                                  <div>
+                                    <a href="{{news[2].link}}">
+                                      <b > Daily Markets: </b> 
+                                      <span >
+                                        {{news[1].title}}
+                                      </span>
+                                    </a>
+                                  </div>
+                              </div>
+
+                              <div class=" d-flex justify-content-end mt-5 " >
+                                <a href="#" class=" border-0 button__darkgreen m0p0 mr-5 d-flex" style="position: relative;">
+                                    <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                                        <p class= " m0p0 ">learn more</p>
+                                    </div>
+                                    <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                                    <div class="bg__color1">
+                                
+                                    </div>
+                                </a>
+                        
+                              </div>
+                            </div>
+
+                            <div class="d-none daily__news">
+                              <div>
+                                  <div >
+                                    <a href="{{news[3].link}}">
+                                      <b > Daily Markets: </b> 
+                                      <span > {{news[3].title}} </span>
+                                    </a>
+                                  </div>
+                              </div>
+
+                              <div class=" d-flex justify-content-end mt-5 " >
+                                <a href="#" class=" border-0 button__darkgreen m0p0 mr-5 d-flex" style="position: relative;">
+                                    <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                                        <p class= " m0p0 ">learn more</p>
+                                    </div>
+                                    <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                                    <div class="bg__color1">
+                                
+                                    </div>
+                                </a>
+                        
+                              </div>
+                            </div>
+
+
+                      </div>
+    
+                        <div class="col-xl-3 col-md-3 col-lg-3 shadow1 border block__tickers m0p0 p-4" style="border-radius: 3px;">
+                     <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget" id="block__frame"></div>
+  <script type="text/javascript" id="myFrame" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+  {
+  "colorTheme": "light",
+  "dateRange": "1M",
+  "showChart": true,
+  "locale": "en",
+  "width": "100%",
+  "height": "100%",
+  "largeChartUrl": "",
+  "isTransparent": true,
+  "showSymbolLogo": true,
+  "plotLineColorGrowing": "rgba(106, 168, 79, 1)",
+  "plotLineColorFalling": "rgba(204, 0, 0, 1)",
+  "gridLineColor": "rgba(240, 243, 250, 1)",
+  "scaleFontColor": "rgba(120, 63, 4, 1)",
+  "belowLineFillColorGrowing": "rgba(182, 215, 168, 0.12)",
+  "belowLineFillColorFalling": "rgba(221, 126, 107, 0.12)",
+  "symbolActiveColor": "rgba(106, 168, 79, 0.12)",
+  "tabs": [
+    {
+      "title": "Stocks",
+      "symbols": [
+              {
+          "s": "CME_MINI:ES1!",
+          "d": "S&P 500"
+        },
+        {
+          "s": "CME_MINI:NQ1!",
+          "d": "Nasdaq 100"
+        },
+        {
+          "s": "CBOT_MINI:YM1!",
+          "d": "Dow Jones"
+        },
+        {
+          "s": "NASDAQ:TSLA",
+          "d": "Tesla"
+        },
+        {
+          "s": "NASDAQ:AAPL",
+          "d": "Apple"
+        },
+        {
+          "s": "NASDAQ:AMZN",
+          "d": "Amazon"
+        },
+        {
+          "s": "NASDAQ:MSFT",
+          "d": "Microsoft"
+        },
+        {
+          "s": "NYSE:IBM",
+          "d": "IBM"
+        },
+        {
+          "s": "NYSE:BABA",
+          "d": "Alibaba"
+        },
+        {
+          "s": "OTC:SFOR",
+          "d": "Strikeforce Technologies"
+        },
+        {
+          "s": "NYSE:NIO",
+          "d": "Nio"
+        }
+      ]
+    },
+    {
+      "title": "Commodities",
+      "symbols": [
+        {
+          "s": "COMEX:GC1!",
+          "d": "Gold"
+        },
+        {
+          "s": "NYMEX:CL1!",
+          "d": "Crude Oil"
+        },
+        {
+          "s": "COMEX:SI1!",
+          "d": "Silver"
+        },
+        {
+          "s": "CBOT:ZC1!",
+          "d": "Corn"
+        },
+        {
+          "s": "CBOT:ZW1!",
+          "d": "Wheat"
+        },
+        {
+          "s": "CBOT:ZS1!",
+          "d": "Soybean"
+        },
+        {
+          "s": "NYMEX:NG1!",
+          "d": "Natural Gas"
+        }
+      ],
+      "originalTitle": "Commodities"
+    },
+    {
+      "title": "Currencies",
+      "symbols": [
+        {
+          "s": "FX:EURUSD",
+          "d": "EUR/USD"
+        },
+        {
+          "s": "FX_IDC:USDUAH",
+          "d": "USD/UAH"
+        },
+        {
+          "s": "FX_IDC:EURUAH",
+          "d": "EUR/UAH"
+        },
+        {
+          "s": "OANDA:GBPUSD",
+          "d": "GBP/USD"
+        },
+        {
+          "s": "FX:USDCAD",
+          "d": "USD/CAD"
+        },
+        {
+          "s": "FX:AUDUSD",
+          "d": "AUD/USD"
+        },
+        {
+          "s": "FX_IDC:USDCNY",
+          "d": "USD/CNY"
+        },
+        {
+          "s": "OANDA:USDJPY",
+          "d": "USD/JPY"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->      
+
+
+
+                        </div>
+                
+                        
+
+                    </div>
+                    <div class="mr-3 main__arrow__scroll " style="position: absolute; right: 0; top: calc(50% - 128px);">
+                        <a href="#">
+                            <img src="{{ url_for('static', filename='img/arrow/arrow_right.png')}}" alt="arrowscroll">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DODS for page -->
+            <div class="circle__main__page d-flex" style="position: absolute;bottom: 75px;left: calc(50% - 30px);">
+                <div class="circle__main__1  active splash rounded-circle m-1" id="cima__1" style="height:12px;width: 12px; "></div>    
+                <div class="circle__main__1  rounded-circle m-1" id="cima__2" style="height:12px;width: 12px; "></div>
+                <div class="circle__main__1  rounded-circle m-1" id="cima__3" style="height:12px;width: 12px; "></div>
+            </div>
+
+
+
+            <!-- social links -->
+            <div class="block__social d-flex" style="position: absolute; bottom: 3vh; left: 8%; ">
+                <a class="p-2" href="http://twitter.com">
+                    <img src="{{ url_for('static', filename='img/icons/Twitter.svg')}}" alt="twitter_picture">
+                </a>
+                <a class="p-2" href="http://instagram.com">
+                    <img src="{{ url_for('static', filename='img/icons/Instagram.svg')}}" alt="instagram_picture">
+                </a>
+                <a class="p-2" href="http://facebook.com">
+                    <img src="{{ url_for('static', filename='img/icons/Facebook2.0.svg')}}" alt="facebook_picture">
+                </a>
+                <a class="p-2" href="http://youtube.com">
+                    <img src="{{ url_for('static', filename='img/icons/youtube_brown.svg')}}" alt="facebook_picture">
+                </a>
+                
+            </div>
+
+            <!-- number pages -->
+            <div class="number__pages text-center p-5 ">
+               01
+            </div>
+
+
+        </div>
+    </div>
+    
+
+    <div class="row m0p0 ">
+        <div class="col-lg-12 m0p0" style="background: #F0F3E6;">
+          <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "proName": "FOREXCOM:SPXUSD",
+      "title": "S&P 500"
+    },
+    {
+      "proName": "FOREXCOM:NSXUSD",
+      "title": "Nasdaq 100"
+    },
+    {
+      "proName": "FX_IDC:EURUSD",
+      "title": "EUR/USD"
+    },
+    {
+      "description": "DOW Jones",
+      "proName": "FOREXCOM:DJI"
+    },
+    {
+      "description": "Tesla Inc.",
+      "proName": "NASDAQ:TSLA"
+    },
+    {
+      "description": "NIO INC",
+      "proName": "NYSE:NIO"
+    },
+    {
+      "description": "SFOR otc pink",
+      "proName": "OTC:SFOR"
+    },
+    {
+      "description": "Amazon com inc",
+      "proName": "NASDAQ:AMZN"
+    },
+    {
+      "description": "AMD inc.",
+      "proName": "NASDAQ:AMD"
+    },
+    {
+      "description": "Apple inc.",
+      "proName": "NASDAQ:AAPL"
+    }
+  ],
+  "showSymbolLogo": true,
+  "colorTheme": "light",
+  "isTransparent": true,
+  "displayMode": "adaptive",
+  "locale": "en"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+        </div>
+        <div class="col-lg-12 m0p0 d-flex justify-content-center " id="slider__main" style="background: #F0F3E6;">
+          
+          <div class="col-lg-12 d-flex justify-content-center align-items-center m0p0 blocks slider mt-5 mb-5" style="min-width:0; ">
+
+                <!-- <div class="col-lg-1 d-flex justify-content-center">
+                    <a href="#" style="height: 100%; display: flex;">
+                        <img class="align-self-center" src="{{ url_for('static', filename='img/icons/scroll_left.svg')}}" alt="left">
+                    </a>
+                </div> -->
+                
+               
+                    
+                    <div class="slider__item     " style="min-width: 0;">
+
+                      <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+  {
+  "symbol": "NASDAQ:PULM",
+  "width": "100%",
+  "height": "100%",
+  "locale": "en",
+  "dateRange": "1D",
+  "colorTheme": "light",
+  "trendLineColor": "rgba(106, 168, 79, 1)",
+  "underLineColor": "rgba(217, 234, 211, 1)",
+  "isTransparent": true,
+  "autosize": true,
+  "largeChartUrl": ""
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+                    </div>
+
+                    <div class="slider__item  " style="min-width: 0;">
+                    
+                      <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+  {
+  "symbol": "NASDAQ:PBTS",
+  "width": "100%",
+  "height": "100%",
+  "locale": "en",
+  "dateRange": "1D",
+  "colorTheme": "light",
+  "trendLineColor": "rgba(106, 168, 79, 1)",
+  "underLineColor": "rgba(217, 234, 211, 1)",
+  "isTransparent": true,
+  "autosize": true,
+  "largeChartUrl": ""
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+                    </div>
+
+                    <div class="slider__item   " style="min-width: 0;">
+
+                      <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+  {
+  "symbol": "NASDAQ:USIO",
+  "width": "100%",
+  "height": "100%",
+  "locale": "en",
+  "dateRange": "1D",
+  "colorTheme": "light",
+  "trendLineColor": "rgba(106, 168, 79, 1)",
+  "underLineColor": "rgba(217, 234, 211, 1)",
+  "isTransparent": true,
+  "autosize": true,
+  "largeChartUrl": ""
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->>
+                    
+                    </div>
+
+                    <div class="slider__item  " style="min-width: 0;">
+                      
+                      <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+ 
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+  {
+  "symbol": "NASDAQ:OVID",
+  "width": "100%",
+  "height": "100%",
+  "locale": "en",
+  "dateRange": "1D",
+  "colorTheme": "light",
+  "trendLineColor": "rgba(106, 168, 79, 1)",
+  "underLineColor": "rgba(217, 234, 211, 1)",
+  "isTransparent": true,
+  "autosize": true,
+  "largeChartUrl": ""
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+                    </div>
+
+                    <div class="slider__item     " style="min-width: 0;">
+
+                       <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+  {
+  "symbol": "OTC:OCANF",
+  "width": "100%",
+  "height": "100%",
+  "locale": "en",
+  "dateRange": "1D",
+  "colorTheme": "light",
+  "trendLineColor": "rgba(106, 168, 79, 1)",
+  "underLineColor": "rgba(217, 234, 211, 1)",
+  "isTransparent": true,
+  "autosize": true,
+  "largeChartUrl": ""
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+                    </div>
+
+                    
+                
+    
+               
+            </div>
+        </div>
+      
+            
+
+
+            <div class="col-lg-12 d-flex blocks m0p0 justify-content-center align-items-center " >
+                <div class="col-lg-10 d-flex m0p0 justify-content-between">
+                    <div class="d-flex  justify-content-center m0p0 block__topic pb-5" >
+                        <div>
+                          <div class=" mb-2" style="color: #3D1D00;">
+                            <h2 class=" text-center ff__Lora mt-5 pl-5 pr-5"><b>Why you need to subscribe:</b></h2>
+                        </div>
+                        <div style="color: #3D1D00;">
+                            <p class=" pl-5 mt-5 pr-5 ">
+                                <ul class="ml-5">
+                                  <li>Personal assisnatnt</li>
+                                  <li>Personal analytics report</li>
+                                  <li>Personal news</li>
+                                  <li>More information</li>
+                                  <li>Many option's</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="d-flex justify-content-center mt-3 mb-5" >
+                            <a href="#" class=" border-0 button__darkgreen m0p0  d-flex" style="position: absolute; left: 9rem; bottom: 30px">
+                                <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                                    <p class= " m0p0 ">learn more</p>
+                                </div>
+                                <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                                <div class="bg__color1">
+                            
+                                </div>
+                            </a>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class=" m0p0 border block__graf" style="height: 60vh; background: white; width: 66%;">
+                        <div class="col-12 d-flex justify-content-center" style="position: relative; height: 100%; background: url(../static/img/background_subscribe.png);background-repeat: no-repeat; background-size: cover;" >
+                          <div>
+                            <h1 class="text-center mt-5" style="font-family: Coveat1;font-weight: bold; font-size: 100px;color: #0C4807;">
+                              Coming soon
+                            </h1>
+                            <p class="text-center mt-3">
+                              You can make a pre order of our subscription as we are almost there!
+                            </p>
+                            <div style="position: absolute; bottom: 4rem; left: calc(50% - 70px);">
+                              <img src="{{url_for('static',filename='img/shuttle1.png')}}" alt="shuttle">
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+
+    <div class="row m0p0 d-flex justify-content-center background__white" >
+        
+            
+            <div class="col-lg-10 d-flex pt-5 pb-5">
+                <div class="align-self-center ">
+                    <h1 class="text-uppercase m0p0 ff__Lora">top reads</h1>
+                </div>
+            </div>
+
+            <div class="col-lg-10 d-flex justify-content-between m0p0 block__top__reads">
+                <div class="col-lg-9 block__top__news d-flex justify-content-between  pr-5">
+                  <div class="d-flex flex-column  block " >
+                    <div class="d-flex justify-content-center">
+                        <img src="{{ url_for('static', filename='img/news1.png')}}" alt="news1" >
+                    </div>
+                    <div class="mt-1" style="min-height: 90px;">
+                        <p>
+                          {{news[0].title}}
+                        </p>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ news[8][3] }}" class=" border-0 button__darkgreen m0p0 mr-3 d-flex" style="position: relative;">
+                            <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                                <p class= " m0p0 ">learn more</p>
+                            </div>
+                            <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                            <div class="bg__color1">
+                        
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="d-flex flex-column block " >
+                    <div class="d-flex justify-content-center" >
+                        <img src="{{ url_for('static', filename='img/news2.png')}}" alt="news2" >
+                    </div>
+                    <div class="mt-1" style="min-height: 90px;">
+                        <p>
+                          {{news[1].title}}
+                        </p>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ news[9][3] }}" class=" border-0 button__darkgreen m0p0 mr-3 d-flex" style="position: relative;">
+                            <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                                <p class= " m0p0 ">learn more</p>
+                            </div>
+                            <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                            <div class="bg__color1">
+                        
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="d-flex flex-column block" style="position: relative; ">
+                    <div class="d-flex justify-content-center">
+                        <img src="{{ url_for('static', filename='img/news3.png')}}" alt="news3" >
+                    </div>
+                    <div class="mt-1" style="min-height: 90px;">
+                        <p>
+                            {{news[2].title}}
+                        </p>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ news[10][3] }}" class=" border-0 button__darkgreen m0p0 mr-3 d-flex" style="position: relative;">
+                            <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                                <p class= " m0p0 ">learn more</p>
+                            </div>
+                            <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                            <div class="bg__color1">
+                        
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-lg-3 d-flex flex-column block pb-5 " >
+                    <div>
+                        <h2 class="text-center text-uppercase">top news</h2>
+                    </div>
+                    <div class="p-2" style="overflow-y: scroll;">
+                        {% for item in news[3:] %}
+                        <a href="{{item.link}}">
+                            <p>{{item.title}}</p>
+                        </a>
+                        
+                        {% endfor %}
+                    </div>
+                   
+                </div>
+            </div> 
+
+    </div>
+
+    <div class="row m0p0 d-flex justify-content-center" >
+        <div class="col-lg-10 d-flex m0p0">
+            <div class="align-self-center" >
+                <h2 class="pt-3 pb-3 text-uppercase m0p0 ff__Lora">
+                    upcoming marketing events
+                </h2>
+            </div>
+        </div>
+        <div class="col-lg-10 d-flex m0p0 block__marketing justify-content-between">
+            <div class="block__marketing1 d-flex">
+
+                <div class="pr-4">
+                    <img src="../static/img/icons/lex.png" alt="logo_lex">
+                    <div class="pl-3">
+                        <span>Alex</span>
+                        <span>Surname</span>
+                    </div>
+                    <div class="pl-3">
+                        <span><b>position:</b>  <br> Senior Analyst</span>
+                    </div>
+                    <div class="pl-3">
+                        <b>rating: </b>
+                    </div>
+                </div>
+
+                <div class="p-3">
+                    <h3 class="text-center text-uppercase"> analytical report </h3>
+                   
+                   
+                   
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, labore! dolor sit amet consectetur adipisicing elit</p>
+                    <div style="width: 100%;">
+                        <a target="_blank"  href="/static/documents/analytic__Amazon .pdf" class="btn btn-success  text-uppercase" style="position: relative; left: calc(100% - 200px);"> read the report</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block__marketing1 d-flex">
+
+                <div class="pr-4">
+                    <img src="../static/img/icons/lex.png" alt="logo_lex">
+                    <div class="pl-3">
+                        <span>Alex</span>
+                        <span>Surname</span>
+                    </div>
+                    <div class="pl-3">
+                        <span><b>position:</b>  <br> Senior Analyst</span>
+                    </div>
+                    <div class="pl-3">
+                        <b>rating: </b>
+                    </div>
+                </div>
+
+                <div class="p-3">
+                    <h3 class="text-center text-uppercase"> analytical report </h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, labore! dolor sit amet consectetur adipisicing elit</p>
+                    <div style="width: 100%;">
+                        <a target="_blank"  href="/static/documents/analytic__Amazon .pdf" class="btn btn-success text-uppercase" style="position: relative; left: calc(100% - 200px);">read the report</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block__marketing1 d-flex">
+
+                <div class="pr-4">
+                    <img src="../static/img/icons/lex.png" alt="logo_lex">
+                    <div class="pl-3">
+                        <span>Alex</span>
+                        <span>Surname</span>
+                    </div>
+                    <div class="pl-3">
+                        <span><b>position:</b>  <br> Senior Analyst</span>
+                    </div>
+                    <div class="pl-3">
+                        <b>rating: </b>
+                    </div>
+                </div>
+
+                <div class="p-3">
+                    <h3 class="text-center text-uppercase"> analytical report </h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, labore! dolor sit amet consectetur adipisicing elit</p>
+                    <div style="width: 100%;">
+                        <a target="_blank"  href="/static/documents/analytic__Amazon .pdf" class="btn btn-success text-uppercase" style="position: relative; left: calc(100% - 200px);"> read the report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m0p0 block__important__topic pt-5 " >
+        <div class="col-lg-12 d-flex justify-content-center background__two m0p0" >
+            <div class="col-lg-10 m0p0 pt-5">
+                <div class="col-lg-5 m0p0">
+                    <h2 class="header__topic ff__Lora pb-4">
+                      Information about us
+                    </h2>
+                    <p class="tail__topic pb-4">
+                        
+                        Our channel on YouTube will tell everything about Us
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique voluptatibus pariatur reprehenderit fuga quisquam nam veniam excepturi dolores ut, doloribus quas quaerat facilis in laborum recusandae animi ex id?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m0p0" >
+        <div class="col-lg-12 m0p0 d-flex justify-content-center" style="height: 100%;">
+            <div class="col-lg-10 m0p0">
+                <div class="col-lg-12 m0p0 pt-3 pb-3 d-flex flex-column justify-content-center">
+                    <h2 class="text-uppercase m0p0 ff__Lora">j&y video</h2>
+
+               </div>
+               <div class="col-lg-12 m0p0 d-flex   pb-5" >
+
+                    <div class=" m0p0 border  p-1 " style=" width: 100%; border-radius: 5px; background: linear-gradient(88.81deg, rgba(202, 180, 160, 0.5) 1.86%, rgba(167, 206, 137, 0.5) 98.96%, rgba(87, 113, 13, 0.5) 98.97%, rgba(238, 250, 203, 0.5) 98.98%);">
+                        <div style="height: 100%;">
+                          <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/8eJdCvzofBw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 block__big__video m0p0 ml-3 border" style="background: linear-gradient(88.81deg, rgba(202, 180, 160, 0.5) 1.86%, rgba(167, 206, 137, 0.5) 98.96%, rgba(87, 113, 13, 0.5) 98.97%, rgba(238, 250, 203, 0.5) 98.98%);border-radius: 5px;">
+                        
+                        <div class="mx-auto p-3" style="height: 30%;">
+                            <div style="height: 100%;">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/hNa2ynRYDHA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>    
+                        </div>
+                        
+
+                        <div class="mx-auto p-3">
+                            <div style="height: 100%;">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/hNa2ynRYDHA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        
+                        <div class="mx-auto p-3">
+                            <div style="height: 100%;">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/hNa2ynRYDHA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>   
+                        </div>
+                        
+                    </div>
+               </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row m0p0" >
+        <div class="col-lg-12 d-flex justify-content-center m0p0 block__brown ">
+            <div class="col-lg-10 d-flex justify-content-between m0p0">
+                <div class="col-lg-6 m0p0 d-flex ">
+                    <form action="/home" method="post" style="width: 100%;">
+                        <h1 class="text-uppercase text-light text-center pt-5 pb-3 ff__Lora">contact us</h1>
+                        <div class="col-lg-12 d-flex m0p0 block__form" >
+                            <div class="d-flex flex-column justify-content-between pr-5">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                                <input name="name" type="text" placeholder="Name" class="border-0 p-3" style="height: 55px;border-radius: 5px;">
+                                <input name="email" type="email" placeholder="E-mail" class="border-0 p-3"  style="height: 55px;margin-bottom: 7px;border-radius: 5px;">
+                                {% if form.errors %}
+                                <div class="text-danger">
+                                  {% for field, errors in form.errors.items() %}
+                                      {{ ', '.join(errors) }}
+                                  {% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="m0p0" >
+                                <textarea name="text" placeholder="Message" class="border-0 m0p0 p-3" style="height: 140px;width: 100%;border-radius: 5px;"></textarea>
+                            </div>
+                        </div>
+                       <div class="d-flex justify-content-end mt-4 block__form__button">
+                            <a href="#" onclick="this.closest('form').submit();return false;" class=" border-0 button__darkgreen m0p0 d-flex" style="position: relative; ">
+                                <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                                    <p class= " m0p0 ">send</p>
+                                </div>
+                                <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                                <div class="bg__color1">
+                        
+                                </div>
+                            </a>
+                       </div>
+                    </form>
+                </div>
+                <div class="col-lg-6 m0p0 block__map">
+                    <div class="mapouter pt-5 pl-5 pb-5" style="width: 100%;" >
+                        <div class="gmap_canvas " style="height: 400px; border-radius: 5px; ">
+                            <iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=mykolaiv&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        </div><style>.mapouter{position:relative;text-align:center;height:500px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+
+
+    
+    
+    
+
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,343 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Market news
+{% endblock %}
+
+{% block body%}
+<div class="background__main2"></div>
+<!-- <div class="background__main3"></div> -->
+<div class="container-fluid background_white position__rel m0p0" style="padding-bottom: 100px;">
+  <div class="row m0p0 ">
+    <div class="col-lg-12 m0p0">
+        <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+   <div class="tradingview-widget-container__widget"></div>
+   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+   {
+   "symbols": [
+     {
+       "proName": "FOREXCOM:SPXUSD",
+       "title": "S&P 500"
+     },
+     {
+       "proName": "FOREXCOM:NSXUSD",
+       "title": "Nasdaq 100"
+     },
+     {
+       "proName": "FX_IDC:EURUSD",
+       "title": "EUR/USD"
+     },
+     {
+       "description": "DOW Jones",
+       "proName": "FOREXCOM:DJI"
+     },
+     {
+       "description": "Tesla Inc.",
+       "proName": "NASDAQ:TSLA"
+     },
+     {
+       "description": "NIO INC",
+       "proName": "NYSE:NIO"
+     },
+     {
+       "description": "SFOR otc pink",
+       "proName": "OTC:SFOR"
+     },
+     {
+       "description": "Amazon com inc",
+       "proName": "NASDAQ:AMZN"
+     },
+     {
+       "description": "AMD inc.",
+       "proName": "NASDAQ:AMD"
+     },
+     {
+       "description": "Apple inc.",
+       "proName": "NASDAQ:AAPL"
+     }
+   ],
+   "showSymbolLogo": true,
+   "colorTheme": "light",
+   "isTransparent": true,
+   "displayMode": "adaptive",
+   "locale": "en"
+ }
+   </script>
+ </div>
+ <!-- TradingView Widget END -->
+   </div>
+</div>
+
+
+
+
+    <div class="news__page" style="position: relative;">
+      
+    <div class="row m0p0">
+        <div class="col-lg-12 m0p0 mt-4">
+          <h2 class="text-uppercase text-center">market news</h2>
+        </div>    
+    </div>
+
+    <!-- <div style="position: absolute;left: 3%;top: calc(50% - 45px);"><img src="{{url_for('static', filename='img/icons/scroll_left.svg')}}" alt="sroll_left"></div>
+
+    <div style="position: absolute;right: 3%;top: calc(50% - 45px);"><img src="{{url_for('static', filename='img/icons/scroll.svg')}}" alt="sroll_right"></div> -->
+
+    <div class="row m0p0">
+      <div class="col-lg-12 d-flex m0p0 justify-content-center">
+        <div class="col-lg-10 d-flex justify-content-between m0p0">
+            <div class="col-4 mt-3 mr-3 mb-3" >
+              <div style=" height: 100%;">
+                  
+                  <div class="border d-lg-block d-none" style=" height: 100%;width: 100%; position: relative; background-color: #f2f5e6;border-radius: 5px;padding-bottom:60px">
+                    <div class="block__news" style="height: 100%;" style="position: relative;">
+                      <h2 class="mb-1 text-center text-uppercase"><img src="{{url_for('static', filename='img/logos_companys/bbc.svg')}}" alt="logo_bbc" style="height: 24px; position: relative;top: -3px;"> bbc</h2>
+                      {% for item in bbc %}
+                      <div class="link__news  m0p0 p-2 pr-4 pl-4" style="font-size: 16px;line-height: 17px;">
+
+                        <a class="colorLink m0p0 " href="{{item[3]}}">{{item[2]}} </br>
+                          <span style="font-size: 11px;line-height: 13px;font-weight: 300;">{{item[1]}}</span>
+                        </a>
+
+                      </div>
+                      {% endfor %}
+                      <div class="m0p0 d-flex justify-content-center m-3" style="position: absolute; right: 0; bottom:0">
+                          <a href="marketnews/bbc" class=" border-0 button__darkgreen m0p0 d-flex" style="position: relative;">
+                            <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                              <p class= " m0p0 ">learn more</p>
+                            </div>
+                            <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                            <div class="bg__color1">
+                    
+                            </div>
+                          </a>
+                      </div>
+                      
+                    </div>
+
+                    <div class="background__block__news" >
+                    
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+            <div class="col-4 mt-3 mb-3 mr-3 d-lg-block d-none" >
+              <div style=" height: 100%;">
+                  
+                  <div class="border block__news" style=" height: 100%;width: 100%;  position: relative; background-color: #f2f5e6; border-radius: 5px;">
+                    <div style="height: 100%;" style="position: relative;">
+                      <h3 class="mb-1 text-center text-uppercase"> 
+                        <img src="../static/img/logos_companys/wsj2.png" alt="logo_nasdaq" style="height: 35px;position: relative; top: -2px;">
+                        Wall street journal
+                      </h3>
+                      {% for item in wsj%}
+                      <div class="link__news  m0p0 p-2 pr-4 pl-4" style="font-size: 16px;line-height: 17px;">
+
+                        <a class="colorLink m0p0 " href="{{item[3]}}">{{item[2]}} </br>
+                          <span style="font-size: 11px;line-height: 13px;font-weight: 300;">{{item[1]}}</span>
+                        </a>
+
+                      </div>
+                      {% endfor %}
+                      <div class="m0p0 d-flex justify-content-center m-3" style="position: absolute; right: 0; bottom:0">
+                          <a href="marketnews/wallstreetjournal" class=" border-0 button__darkgreen m0p0 d-flex" style="position: relative;">
+                            <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                              <p class= " m0p0 ">learn more</p>
+                            </div>
+                            <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                            <div class="bg__color1">
+                    
+                            </div>
+                          </a>
+                      </div>
+                      
+                    </div>
+
+                    <div class="background__block__news" >
+                    
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-4 mt-3 mb-3 mr-3 d-lg-block d-none">
+              <div style=" height: 100%;">
+                  
+                  <div class="border " style=" height: 100%;width: 100%; position: relative; background-color: #f2f5e6; border-radius: 5px;">
+                    <div class="block__news" style="height: 100%;" style="position: relative;">
+                      <h2 class="mb-1 text-center text-uppercase">
+                        <img src="../static/img/logos_companys/nytimes2.png" alt="logo_nasdaq" style="height: 40px;">
+                         New York Times</h2>
+                      {% for item in nytimes %}
+                      <div class="link__news  m0p0 p-2 pr-4 pl-4" style="font-size: 16px;line-height: 17px;">
+
+                        <a class="colorLink m0p0 " href="{{item[3]}}">{{item[2]}} </br>
+                          <span style="font-size: 11px;line-height: 13px;font-weight: 300;">{{item[1]}}</span>
+                        </a>
+
+                      </div>
+                      {% endfor %}
+                      <div class="m0p0 d-flex justify-content-center m-3" style="position: absolute; right: 0; bottom:0">
+                          <a href="marketnews/nytimes" class=" border-0 button__darkgreen m0p0 d-flex" style="position: relative;">
+                            <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                              <p class= " m0p0 ">learn more</p>
+                            </div>
+                            <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                            <div class="bg__color1">
+                    
+                            </div>
+                          </a>
+                      </div>
+                      
+                    </div>
+
+                    <div class="background__block__news" >
+                    
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 d-flex justify-content-center m0p0">
+        <div class="col-lg-10 d-flex justify-content-between m0p0">
+            
+          <div class="col-4 mt-3 mr-3 d-lg-block d-none" >
+            <div style=" height: 100%;">
+                
+                <div class="border" style=" height: 100%;width: 100%; position: relative; background-color: #f2f5e6;border-radius: 5px;">
+                  <div class="block__news" style="height: 100%;" style="position: relative;">
+                    <h2 class="mb-1 text-center text-uppercase"><img src="../static/img/logos_companys/nasdaq.svg" alt="logo_nasdaq" style="height: 40px;"> nasdaq</h2>
+                    {% for item in nasdaq %}
+                    <div class="link__news  m0p0 p-2 pr-4 pl-4" style="font-size: 16px;line-height: 17px;">
+
+                      <a class="colorLink m0p0 " href="{{item[3]}}">{{item[2]}} </br>
+                        <span style="font-size: 11px;line-height: 13px;font-weight: 300;">{{item[1]}}</span>
+                      </a>
+
+                    </div>
+                    {% endfor %}
+                    <div class="m0p0 d-flex justify-content-center m-3" style="position: absolute; right: 0; bottom:0">
+                        <a href="marketnews/nasdaq" class=" border-0 button__darkgreen m0p0 d-flex" style="position: relative;">
+                          <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                            <p class= " m0p0 ">learn more</p>
+                          </div>
+                          <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                          <div class="bg__color1">
+                  
+                          </div>
+                        </a>
+                    </div>
+                    
+                  </div>
+
+                  <div class="background__block__news" >
+                  
+                  </div>
+                </div>
+              </div>
+          </div>
+
+            <div class="col-4 mt-3 mr-3 d-lg-block d-none" >
+              <div style=" height: 100%;">
+                  
+                  <div class="border " style=" height: 100%;width: 100%;  position: relative; background-color: #f2f5e6;border-radius: 5px;">
+                    <div class="block__news" style="height: 100%;" style="position: relative;">
+                      <h2 class="mb-1 text-center text-uppercase">
+                        <img src="../static/img/logos_companys/marketwatch.svg" alt="logo_marketwatch" style="height: 50px;position: relative;top: -6px;" >
+                         marketwatch
+                      </h2>
+                      {% for item in marketwatch %}
+                      <div class="link__news  m0p0 p-2 pr-4 pl-4" style="font-size: 16px;line-height: 17px;">
+
+                        <a class="colorLink m0p0 " href="{{item[3]}}">{{item[2]}} </br>
+                          <span style="font-size: 11px;line-height: 13px;font-weight: 300;">{{item[1]}}</span>
+                        </a>
+
+                      </div>
+                      {% endfor %}
+                      <div class="m0p0 d-flex justify-content-center m-3" style="position: absolute; right: 0; bottom:0">
+                          <a href="marketnews/marketwatch" class=" border-0 button__darkgreen m0p0 d-flex" style="position: relative;">
+                            <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                              <p class= " m0p0 ">learn more</p>
+                            </div>
+                            <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                            <div class="bg__color1">
+                    
+                            </div>
+                          </a>
+                      </div>
+                      
+                    </div>
+
+                    <div class="background__block__news" >
+                    
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-4 mt-3 mr-3 d-lg-block d-none" >
+              <div style=" height: 100%;">
+                  
+                  <div class="border " style=" height: 100%;width: 100%; border-radius: 5px; position: relative; background-color: #f2f5e6;">
+                    <div class="block__news" style="height: 100%;" style="position: relative;">
+                      <h2 class="mb-1 text-center text-uppercase">
+                        <img src="../static/img/logos_companys/investing2.png" alt="logo_marketwatch" style="height: 50px;position: relative;top: -5px; left: 0;" >
+                        investing
+                      </h2>
+                      {% for item in investing %}
+                      <div class="link__news  m0p0 p-2 pr-4 pl-4" style="font-size: 16px;line-height: 17px;">
+
+                        <a class="colorLink m0p0 " href="{{item[3]}}">{{item[2]}} </br>
+                          <span style="font-size: 11px;line-height: 13px;font-weight: 300;">{{item[1]}}</span>
+                        </a>
+
+                      </div>
+                      {% endfor %}
+                      <div class="m0p0 d-flex justify-content-center m-3" style="position: absolute; right: 0; bottom:0">
+                          <a href="marketnews/investing" class=" border-0 button__darkgreen m0p0 d-flex" style="position: relative;">
+                            <div class="text-uppercase text-light p-2 m0p0 ff__robo" style="position: absolute; height: 100%; line-height: 1.8;">
+                              <p class= " m0p0 ">learn more</p>
+                            </div>
+                            <img class="arrow__left" src="{{ url_for('static', filename='img/arrow/arrow.svg')}}" style="position: absolute; top: 18px; right: -20px;z-index: 3333; transition:right 0.5s ;" alt="arrow-small">
+                            <div class="bg__color1">
+                    
+                            </div>
+                          </a>
+                      </div>
+                      
+                    </div>
+
+                    <div class="background__block__news" >
+                    
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+          
+
+    </div>
+
+    
+
+ </div>
+ 
+</div>
+{% endblock %}
+
+{% block active3%}
+active
+{% endblock %}

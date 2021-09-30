@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+
+{% block title %}
+JYforum
+{% endblock %}
+
+{% block body%}
+<div class="container-fluid position__rel">
+    <div class="row m0p0">
+        <div class="col-lg-12 d-flex justify-content-center m0p0">
+            <div class="col col-6 m0p0 " id="select_markets" style="display: none;" >
+                <div class="selectlink"  style="width: 100%;"> 
+                    <div class="btn-group border mb-2" style="width: 100%;">
+                        <button type="button" class="btn dropdown-toggle bgcolor border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
+                            <span id="span_select"> PRICE CHART</span>
+                        </button>
+                        <div class="dropdown-menu " style="width: 100%;">
+                            <a href="/stocks/pricechart?stock={{ companyTicker }}" class="btn" id="table_price" role="button">PRICE CHART</a>
+                            <a href="/stocks/tradingideas?stock={{ companyTicker }}" class="btn" id="table_trading" role="button">TRADING IDEAS</a>
+                            <a href="/stocks/news?stock={{ companyTicker }}" class="btn" id="table_news" role="button">NEWS</a>
+                            <a href="/stocks/dividends?stock={{ companyTicker }}" class="btn" id="table_dividends" role="button">DIVIDENDS</a>
+                            <a href="/stocks/majorholders?stock={{ companyTicker }}" class="btn" id="table_major" role="button">MAJOR HOLDERS</a>
+                            <a href="/stocks/financials?stock={{ companyTicker }}" class="btn" id="table_financials" role="button">FINANCIALS</a>
+                            <a href="/stocks/jyforum?stock={{ companyTicker }}" class="btn" id="table_forum" role="button">J&Y FORUM</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col col-6 col-lg-6 m0p0">
+                <div>
+                    <label class="tickerInput-lg" for="ticker"> Company Ticker: </label>
+                </div>
+                <div class="pb-2 d-flex">
+                    <label class="tickerInput" for="ticker"> Company Ticker: </label>
+                    <input autocomplete="off" id="autocomplete" class="form-control input_1" type="text" name="ticker" style="border-radius:0 0 0 0;width: 100%;"
+                        value="{{ companyTicker }}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex  m0p0">
+        <div class="col-lg-6 d-flex justify-content-center mx-auto" >
+                <div class=" btn-group d-flex buttons_1">
+                    <a href="/stocks/pricechart?stock={{ companyTicker }}" class="btn" id="table_price" role="button">PRICE CHART</a>
+                    <a href="/stocks/tradingideas?stock={{ companyTicker }}" class="btn" id="table_trading" role="button">TRADING IDEAS</a>
+                    <a href="/stocks/news?stock={{ companyTicker }}" class="btn" id="table_news" role="button">NEWS</a>
+                    <a href="/stocks/dividends?stock={{ companyTicker }}" class="btn" id="table_dividends" role="button">DIVIDENDS</a>
+                    <a href="/stocks/majorholders?stock={{ companyTicker }}" class="btn" id="table_major" role="button">MAJOR HOLDERS</a>
+                    <a href="/stocks/financials?stock={{ companyTicker }}" class="btn" id="table_financials" role="button">FINANCIALS</a>
+                    <a href="/stocks/jyforum?stock={{ companyTicker }}" class="btn" id="table_forum" role="button">J&Y FORUM</a>
+                </div>
+        </div>
+        
+    </div>
+    <div class="row d-flex justify-content-center  m0p0">
+        <div class="col-lg-6 d-flex justify-content-center m0p0">
+            <div class="col-lg-12 border p-4 bgcolor mx-auto" >
+
+                <!-- {%for i in data[1]%}
+
+                <div>
+                    {{i}}
+                </div>
+
+                {% endfor %} -->
+                <div>
+                    {{ data }}
+                </div>
+
+            </div>
+       
+        </div>
+    </div>
+
+
+{{test}}
+    <div class="row d-flex justify-content-center  m0p0">
+        <div class="col-lg-6 d-flex justify-content-center m0p0 ">
+            <div class="col-lg-12 border bgcolor mt-2">
+               
+                {% if authenticated == False %}
+                <form role="form text3 d-flex" method="POST" action="/stocks/jyforum">
+                    <div class = "col-lg-12 ">
+                        <div class="col-lg-4 m0p0 pt-2 pb-2">
+                            Click here to <a href="/login">LOGIN </a>!!!
+                            <input type="text" name="userName" value = "{{ username }}" readonly="readonly" id="userName" class="form-control p-1" style="border-radius: 0px;">
+                            
+                        </div>
+                        
+                        <input type="text" readonly="readonly" class="form-control form-control-lg p-1" id="message_forum" name="message_forum" placeholder="Only authorized user can write a post!" style="border-radius: 0px; height: 100px;">
+                        <div class="text-right p-2 m0p0" style="border-radius: 0px; padding-right: 0 !important;">
+                            <button name="send_post" value="send_post" type="submit" class=""  disabled style="background-color: #886F4A;color: white;" data-translate-key="" style="border-radius: 0px;" > post</button>
+                        </div>               
+                    </div>           
+                </form>
+
+                {% else %}
+                <form role="form text3 d-flex" method="POST" action="/stocks/jyforum?stock={{companyTicker}}">
+                    <div class = "col-lg-12 ">
+                        <div class="col-lg-4 m0p0 pt-2 pb-2">
+                            <input type="text" name="userName" value = "{{ username }}" readonly="readonly" id="userName" class="form-control p-1" style="border-radius: 0px;">
+                        </div>
+                        
+                        <input type="text" class="form-control form-control-lg p-1" id="message_forum" name="message_forum" placeholder="Messege" style="border-radius: 0px; height: 100px;">
+                        <div class="text-right p-2 m0p0" style="border-radius: 0px; padding-right: 0 !important;">
+                            <button name="send_post" value="send_post" type="submit" class="" style="background-color: #886F4A;color: white;" data-translate-key="" style="border-radius: 0px;" > post</button>
+                        </div>               
+                    </div>           
+                </form>
+                {% endif %}
+            </div>
+            
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-2 m0p0">
+        <div class="col-lg-6 m0p0">
+            <div class="col-lg-12 m0p0" id="all_messages">
+                
+                <div id="form_request_coment " class="form_request_coment">
+                    <form class="input_coment " method="POST">
+                            <fieldset>
+                                <label class="d-flex p-1 m0p0" for="input">Your Coment :</label>
+                                <div class="d-flex ">
+
+                                    <input type="text" name="reply_text" class="d-flex m0p0" id="input" style="width: calc(100% - 40px);">
+                                    <input type="hidden" name="send_reply_id" val="" id="hidden_input_request">
+                                    <button name="send_post" value="send_reply" id="hidden" data-id="hidden" class="d-flex btn-sm border send_reply" >Send</button>
+                                </div>                                            
+                            </fieldset>
+                    </form>
+                </div>
+                {% for item in tickerPosts %}
+                {% if item[5] == "None" %}
+                <div class="d-flex mt-2 bgcolor" >
+                    <div class="border p-2" style="width: 25%;">{{ item[2] }} <br> {{ item[1]}} </div>
+                    <div class="border m0p0" style="width: 75%;">
+                        <div id="{{ item[0] }} "  style="height: 100%;width: 100%;position: relative;">
+                            <div id="{{ item[0] }}" style="height: calc(100% - 24px);">
+                                <p class="m0p0">
+                                    {{ item[4]}}
+                                </p> 
+                            </div>   
+                            <div class="d-flex" style="box-sizing: border-box;">
+                                <button class="btn btn-sm border  pt-0 pb-0 rounded-0 button_coment" id="button_coment" name="reply" value="{{item[0]}}">Reply</button>
+                                <button class="btn btn-sm border pt-0 pb-0 rounded-0 like" id="button_com_like" data-id="{{item[0]}}">Like</button>
+                                <div class="d-block text-right count pl-2 pr-2 border" id="count" data-like="{{item[0]}}" style="z-index: 8888;">18</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                   
+
+                </div>
+
+                {% for replyItem in tickerPosts %}
+
+                {% if item[0] == replyItem[5]|int() %}
+                <div class="row d-flex justify-content-end m0p0 mt-1" >
+                    <div class="col-lg-9 d-flex m0p0 bgcolor">
+                        <div class="border p-2" style="width: 25%;">{{ replyItem[2] }} <br> {{ replyItem[1]}} </div>
+                        <div class="border m0p0" style="width: 75%;">
+                            <div id="{{ replyItem[0] }} "  style="height: 100%;width: 100%;position: relative;">
+                                <div id="{{ replyItem[0] }}" style="height: calc(100% - 24px);">
+                                    <p class="m0p0">
+                                         {{ replyItem[4]}}
+                                    </p> 
+                                </div>                               
+                                <div class="d-flex">
+                                    <button class="btn btn-sm border pt-0 pb-0 rounded-0 like" id="button_com" data-id="secondlike{{item[0]}}">Like</button>
+                                    <div class="d-block text-right count pl-2 pr-2 border" id="count" data-like="{{item[0]}}" style="z-index: 8888;">18</div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>                    
+                {% endif %}
+                {% endfor %}
+                
+                {% endif %}
+                {% endfor %}
+
+
+
+
+            </div>
+               
+        </div>
+        
+    </div>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/autocomplete.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/coments.js')}}"></script>
+    <script type="text/javascript">
+        
+        $(document).ready(function(){
+            if ( document.title == 'JYforum') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Stocks Dividends') {
+                let text = $('#table_dividends').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Stock News') {
+                let text = $('#table_news').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Price Chart') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Trading Ideas') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Major Holders') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Financials') {
+                let text = $('#table_financials').text();
+                $('#span_select').text(text);
+            }
+        });
+
+    </script>
+{% endblock %}
+
+{% block active2%}
+active
+{% endblock %}

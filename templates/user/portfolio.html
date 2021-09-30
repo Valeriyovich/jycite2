@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+Trading calendar
+{% endblock %}
+
+{% block body%}
+<div class="row m0p0 d-flex justify-content-center">
+    <div class="col-lg-12 ">
+        <h2 class="text-center text-uppercase">portfolio</h2>
+    </div>   
+    <div class="col-lg-3">
+        <form action="" method="" class="form-group">
+            <label for="">Your Name :</label>
+            <div class="form-group">
+                {{username}}
+            </div>
+            <label for="">Your Email :</label>
+            <div class="form-group">
+                {{useremail}}
+            </div>
+            <div class="pt-3 small"><div data-translate-key="FORGOT_PASS">
+                Forgot password? Click</div> <a href='/resetpassword' data-translate-key="HERE"> HERE</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-3 ">
+        <div class="p-2">
+            Yuor like: 
+        </div>
+        <div class="p-2">
+            Your Balance:
+        </div>
+        <div class="p-2">
+            Your Stocks:
+        </div>
+        <div class="p-2">
+            Your Dividends:
+        </div>
+    </div>
+</div>
+{% endblock %}

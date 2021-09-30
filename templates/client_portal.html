@@ -1,0 +1,49 @@
+{% import "bootstrap/wtf.html" as wtf%}
+{% extends 'base.html' %}
+
+{% block title %}
+Client portal
+{% endblock %}
+
+{% block active5%}
+active
+{% endblock %}
+
+{% block body%}
+<div class="background__main2"></div>
+<div class="container-fluid position__rel" style="height: 100vh;">
+  <div class="row justify-content-center pt-4 m0p0 ">
+    <div class="col-lg-2 col-xs-2 bgcolor border p-3 animate__animated animate__zoomIn">
+      <h3 class="text-center text-uppercase" data-translate-key="CLIENT_PORTAL">Client Portal</h3>
+      <form method="POST" action="/clientportal">
+        {{ form.hidden_tag() }}
+        <div class="form-group ">
+          <input type="name" class="form-control " id="{{ form.username.label.text }}"
+            name="{{ form.username.label.text }}" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control " id="{{ form.password.label.text }}"
+            name="{{ form.password.label.text }}" placeholder="Password">
+  
+          {% if message %}
+          <div class="text-danger">
+            {{ message }}
+          </div>
+          {% endif %}
+  
+          <div class="text-right pt-3 small"><div data-translate-key="FORGOT_PASS">
+            Forgot password? Click</div> <a href='/resetpassword' data-translate-key="HERE"> HERE</a>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-dark text-uppercase" style="width: 100%; data-translate-key="LOGIN">Login</button>
+  
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

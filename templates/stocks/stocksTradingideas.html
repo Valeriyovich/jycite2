@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Trading Ideas
+{% endblock %}
+
+{% block body%}
+    <div class="background__main2"></div>
+    <!-- <div class="background__main3"></div> -->
+    <div class="container-fluid background__white m0p0 position__rel" style="height: 100vh;">
+        <div>
+             <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "S&P 500"
+      },
+      {
+        "proName": "FOREXCOM:NSXUSD",
+        "title": "Nasdaq 100"
+      },
+      {
+        "proName": "FX_IDC:EURUSD",
+        "title": "EUR/USD"
+      },
+      {
+        "description": "DOW Jones",
+        "proName": "FOREXCOM:DJI"
+      },
+      {
+        "description": "Tesla Inc.",
+        "proName": "NASDAQ:TSLA"
+      },
+      {
+        "description": "NIO INC",
+        "proName": "NYSE:NIO"
+      },
+      {
+        "description": "SFOR otc pink",
+        "proName": "OTC:SFOR"
+      },
+      {
+        "description": "Amazon com inc",
+        "proName": "NASDAQ:AMZN"
+      },
+      {
+        "description": "AMD inc.",
+        "proName": "NASDAQ:AMD"
+      },
+      {
+        "description": "Apple inc.",
+        "proName": "NASDAQ:AAPL"
+      }
+    ],
+    "showSymbolLogo": true,
+    "colorTheme": "light",
+    "isTransparent": true,
+    "displayMode": "adaptive",
+    "locale": "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+        </div>
+        <div class="row m0p0">
+            <div class="col-lg-12  m0p0">
+
+                <div class="pt-2 offset-lg-1">
+                    <a href="/home">home/</a>
+                    <a href="#" style="color: #425800;">stocks/ tradingideas </a>
+                </div>
+
+                <div class="col-lg-6 m0p0 d-flex justify-content-center mx-auto" id="select_markets_xl">
+                        <div class="  d-flex justify-content-between  markets__buttons mb-4 mt-4" style="width: 100%;">
+                            <a href="/stocks/pricechart?stock={{ companyTicker }}" class="btn btn-light" id="table_price" role="button">PRICE CHART</a>
+                            <a href="/stocks/tradingideas?stock={{ companyTicker }}" class="btn btn-light active" id="table_trading" role="button">TRADING IDEAS</a>
+                            <a href="/stocks/news?stock={{ companyTicker }}" class="btn btn-light" id="table_news" role="button">NEWS</a>
+                            <a href="/stocks/dividends?stock={{ companyTicker }}" class="btn btn-light" id="table_dividends" role="button">DIVIDENDS</a>
+                            <a href="/stocks/majorholders?stock={{ companyTicker }}" class="btn btn-light" id="table_major" role="button">MAJOR HOLDERS</a>
+                            <a href="/stocks/financials?stock={{ companyTicker }}" class="btn btn-light" id="table_financials" role="button">FINANCIALS</a>
+                           
+                        </div>
+                        
+                </div>
+
+
+                <div class="col col-12 m0p0 d-flex justify-content-center" id="select_markets" >
+                    <div class="selectlink pt-3"  style="width: 100%;"> 
+                        <div class="btn-group border" style="width: 100%;">
+                            <button type="button" class="btn dropdown-toggle bgcolor border-0 mx-auto " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
+                                <span id="span_select"> PRICE CHART</span>
+                            </button>
+                            <div class="dropdown-menu " style="width: 100%;">
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/pricechart?stock={{ companyTicker }}" class="btn btn-" id="table_price" role="button">PRICE CHART</a>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/tradingideas?stock={{ companyTicker }}" class="btn" id="table_trading" role="button">TRADING IDEAS</a>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/news?stock={{ companyTicker }}" class="btn" id="table_news" role="button">NEWS</a>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/dividends?stock={{ companyTicker }}" class="btn btn-light active" id="table_dividends" role="button">DIVIDENDS</a>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/majorholders?stock={{ companyTicker }}" class="btn" id="table_major" role="button">MAJOR HOLDERS</a>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/financials?stock={{ companyTicker }}" class="btn" id="table_financials" role="button">FINANCIALS</a>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col col-12 col-lg-6 m0p0 mx-auto">
+                    
+                    <div class="d-flex p-1">
+                        <div>
+                            <label class="tickerInput pl-1" for="ticker"> <b>Company Ticker :</b>  </label>
+                        </div>
+                        <div style="width: 100%;">
+                            <input id="autocomplete" class="form-control input_1 shadow1" type="text" name="ticker" style="border-radius:0 0 0 0;width: 100%;border-radius: 5px;"
+                            value="{{ companyTicker }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="row d-flex m0p0" >
+                
+                 <!--  tabs big monitors  -->
+            <div class="col-lg-12 d-flex justify-content-center m0p0">
+            <div class="col-lg-12 mt-3 mx-auto m0p0 ">
+    
+                <div class="col col-12 col-lg-6 offset-lg-3 align-self-end d-lg-none m0p0 ">
+                    <div id="stocktwits-widget-news"></div><a href='https://stocktwits.com'
+                        style='font-size: 0px;'>Stocktwits</a>
+                    <script type="text/javascript"
+                        src="https://api.stocktwits.com/addon/widget/2/widget-loader.min.js"></script>
+                    <script type="text/javascript">
+                        width = document.getElementById('stocktwits-widget-news').offsetWidth
+                        STWT.Widget({ container: 'stocktwits-widget-news', symbol: "{{ticker}}", width: width, height: 500, limit: '30', scrollbars: 'true', streaming: 'true', title: 'AAPL Stocktwits Ideas', style: { link_color: '4871a8', link_hover_color: '4871a8', header_text_color: '000000', border_color: 'cecece', divider_color: 'cecece', divider_color: 'cecece', divider_type: 'solid', box_color: 'f5f5f5', stream_color: 'ffffff', text_color: '000000', time_color: '999999' } });
+                    </script>
+                </div>
+    
+                <div class="col col-12 col-lg-6 offset-lg-3 align-self-end d-none d-lg-block m0p0 ">
+                    <div id="stocktwits-widget-news-large"></div><a href='https://stocktwits.com'
+                        style='font-size: 0px;'>Stocktwits</a>
+                    <script type="text/javascript"
+                        src="https://api.stocktwits.com/addon/widget/2/widget-loader.min.js"></script>
+                    <script type="text/javascript">
+                        width = document.getElementById('stocktwits-widget-news-large').offsetWidth
+                        STWT.Widget({ container: 'stocktwits-widget-news-large', symbol: "{{ticker}}", width: width, height: 550, limit: '30', scrollbars: 'true', streaming: 'true', title: 'AAPL Stocktwits Ideas', style: { link_color: '4871a8', link_hover_color: '4871a8', header_text_color: '000000', border_color: 'cecece', divider_color: 'cecece', divider_color: 'cecece', divider_type: 'solid', box_color: 'f5f5f5', stream_color: 'ffffff', text_color: '000000', time_color: '999999' } });
+                    </script>
+    
+                </div>
+    
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget d-flex justify-content-center m0p0">
+                    <div class="tradingview-widget-container__widget "></div>
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                            {
+                                "interval": "1D",
+                                    "width": 550,
+                                        "isTransparent": false,
+                                            "height": 480,
+                                                "symbol": "{{ ticker }}",
+                                                    "showIntervalTabs": true,
+                                                        "locale": "en",
+                                                            "colorTheme": "light"
+                            }
+                        </script>
+                </div>
+                <!-- TradingView Widget END -->
+    
+            </div>
+            </div>
+    
+        </div>
+
+        <!-- COments -->
+
+        <!-- COments -->
+
+        {% include 'stocks/commentSection.html' %}
+    
+    </div>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/autocomplete.js')}}"></script>
+    <script type="text/javascript">
+        $('.input_1').click(function(){
+            $(this).val('').change(); 
+        });
+        $(document).ready(function(){
+            if ( document.title == 'JYforum') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Stocks Dividends') {
+                let text = $('#table_dividends').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Stock News') {
+                let text = $('#table_news').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Price Chart') {
+                let text = $('#table_price').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Trading Ideas') {
+                let text = $('#table_trading').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Major Holders') {
+                let text = $('#table_major').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Financials') {
+                let text = $('#table_financials').text();
+                $('#span_select').text(text);
+            }
+        });
+    
+    </script>
+    {% endblock %}
+
+    {% block active2%}
+    active
+    {% endblock %}

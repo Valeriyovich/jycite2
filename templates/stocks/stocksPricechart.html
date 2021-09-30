@@ -1,0 +1,302 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Price Chart
+{% endblock %}
+
+{% block body%}
+
+    <!-- BACKGROUND TOP-MENU -->
+    <div class="background__main2">
+
+    </div>
+   <!-- ----------  -->
+
+    <div class="container-fluid background__white position__rel m0p0 " style="height: 100vh;" >
+        <div>
+            <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+   <div class="tradingview-widget-container__widget"></div>
+   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+   {
+   "symbols": [
+     {
+       "proName": "FOREXCOM:SPXUSD",
+       "title": "S&P 500"
+     },
+     {
+       "proName": "FOREXCOM:NSXUSD",
+       "title": "Nasdaq 100"
+     },
+     {
+       "proName": "FX_IDC:EURUSD",
+       "title": "EUR/USD"
+     },
+     {
+       "description": "DOW Jones",
+       "proName": "FOREXCOM:DJI"
+     },
+     {
+       "description": "Tesla Inc.",
+       "proName": "NASDAQ:TSLA"
+     },
+     {
+       "description": "NIO INC",
+       "proName": "NYSE:NIO"
+     },
+     {
+       "description": "SFOR otc pink",
+       "proName": "OTC:SFOR"
+     },
+     {
+       "description": "Amazon com inc",
+       "proName": "NASDAQ:AMZN"
+     },
+     {
+       "description": "AMD inc.",
+       "proName": "NASDAQ:AMD"
+     },
+     {
+       "description": "Apple inc.",
+       "proName": "NASDAQ:AAPL"
+     }
+   ],
+   "showSymbolLogo": true,
+   "colorTheme": "light",
+   "isTransparent": true,
+   "displayMode": "adaptive",
+   "locale": "en"
+ }
+   </script>
+ </div>
+ <!-- TradingView Widget END -->
+       </div>
+       <div class="row m0p0">
+           <div class="col-lg-12  m0p0">
+
+               <div class="pt-2 offset-lg-1">
+                   <a href="/home">home/</a>
+                   <a href="#" style="color: #425800;">stocks/ pricechart </a>
+               </div>
+
+               <div class="col-lg-6 m0p0 d-flex justify-content-center mx-auto" id="select_markets_xl">
+                       <div class="  d-flex justify-content-between  markets__buttons mb-4 mt-4" style="width: 100%;">
+                           <a href="/stocks/pricechart?stock={{ companyTicker }}" class="btn btn-light active" id="table_price" role="button">PRICE CHART</a>
+                           <a href="/stocks/tradingideas?stock={{ companyTicker }}" class="btn btn-light " id="table_trading" role="button">TRADING IDEAS</a>
+                           <a href="/stocks/news?stock={{ companyTicker }}" class="btn btn-light" id="table_news" role="button">NEWS</a>
+                           <a href="/stocks/dividends?stock={{ companyTicker }}" class="btn btn-light" id="table_dividends" role="button">DIVIDENDS</a>
+                           <a href="/stocks/majorholders?stock={{ companyTicker }}" class="btn btn-light" id="table_major" role="button">MAJOR HOLDERS</a>
+                           <a href="/stocks/financials?stock={{ companyTicker }}" class="btn btn-light" id="table_financials" role="button">FINANCIALS</a>
+                          
+                       </div>
+                       
+               </div>
+
+
+               <div class="col col-12 m0p0 d-flex justify-content-center" id="select_markets" >
+                   <div class="selectlink pt-3"  style="width: 100%;"> 
+                       <div class="btn-group border" style="width: 100%;">
+                           <button type="button" class="btn dropdown-toggle bgcolor border-0 mx-auto " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
+                               <span id="span_select"> PRICE CHART</span>
+                           </button>
+                           <div class="dropdown-menu " style="width: 100%;">
+                               <div class="d-flex justify-content-center">
+                                   <a href="/stocks/pricechart?stock={{ companyTicker }}" class="btn btn-" id="table_price" role="button">PRICE CHART</a>
+                               </div>
+                               <div class="d-flex justify-content-center">
+                                   <a href="/stocks/tradingideas?stock={{ companyTicker }}" class="btn" id="table_trading" role="button">TRADING IDEAS</a>
+                               </div>
+                               <div class="d-flex justify-content-center">
+                                   <a href="/stocks/news?stock={{ companyTicker }}" class="btn" id="table_news" role="button">NEWS</a>
+                               </div>
+                               <div class="d-flex justify-content-center">
+                                   <a href="/stocks/dividends?stock={{ companyTicker }}" class="btn btn-light " id="table_dividends" role="button">DIVIDENDS</a>
+                               </div>
+                               <div class="d-flex justify-content-center">
+                                   <a href="/stocks/majorholders?stock={{ companyTicker }}" class="btn" id="table_major" role="button">MAJOR HOLDERS</a>
+                               </div>
+                               <div class="d-flex justify-content-center">
+                                   <a href="/stocks/financials?stock={{ companyTicker }}" class="btn" id="table_financials" role="button">FINANCIALS</a>
+                               </div>
+                              
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               
+               <div class="col col-12 col-lg-6 m0p0 mx-auto">
+                   
+                   <div class="d-flex p-1">
+                       <div>
+                           <label class="tickerInput pl-1" for="ticker"> <b>Company Ticker :</b>  </label>
+                       </div>
+                       <div style="width: 100%;">
+                           <input id="autocomplete" class="form-control input_1 shadow1" type="text" name="ticker" style="border-radius:0 0 0 0;width: 100%;border-radius: 5px;"
+                           value="{{ companyTicker }}">
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    <div class="row m0p0 pt-1" >
+         <!--  tabs big monitors  -->
+         <!-- TradingView Widget BEGIN -->
+
+<!-- TradingView Widget END -->
+      
+         <!-- sad-->
+
+        <div class="col-lg-6 col-xs-12 m0p0 mx-auto pb-5" >
+
+            
+            <div style="height: 50vh; overflow-y: scroll;">
+                <div class="tradingview-widget-container">
+                    <div id="tradingview_42235"></div>
+    
+                    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                    <script type="text/javascript">
+                        
+                        width = document.getElementById('tradingview_42235').offsetWidth
+                        height = width * 0.5
+                        if ( "{{ticker}}" == "SFOR") {
+                            new TradingView.widget(
+                            {
+                                "width": width,
+                                "height": height,
+                                "symbol": "OTC:{{ticker}}",
+                                "interval": "D",
+                                "timezone": "America/New_York",
+                                "theme": "light",
+                                "style": "1",
+                                "locale": "en",
+                                "toolbar_bg": "#f1f3f6",
+                                "enable_publishing": false,
+                                "withdateranges": true,
+                                "hide_side_toolbar": true,
+                                "hide_top_toolbar": true,
+                                "hide_legend": false,
+                                "allow_symbol_change": false,
+                                "container_id": "tradingview_42235"
+                            }
+                        );
+                        }
+                        else {
+                            
+                            new TradingView.widget(
+                            {
+                                "width": width,
+                                "height": height,
+                                "symbol": "{{ticker}}",
+                                "interval": "D",
+                                "timezone": "America/New_York",
+                                "theme": "light",
+                                "style": "1",
+                                "locale": "en",
+                                "toolbar_bg": "#f1f3f6",
+                                "enable_publishing": false,
+                                "withdateranges": true,
+                                "hide_side_toolbar": true,
+                                "hide_top_toolbar": true,
+                                "hide_legend": false,
+                                "allow_symbol_change": false,
+                                "container_id": "tradingview_42235"
+                            }
+                        );
+                        }
+                        
+    
+                        document.write(Object.values(TradingView.widget))
+    
+                    </script>
+
+
+                    
+                </div>
+                <!-- Large GRAFF -->
+                <div class="d-flex justify-content-end">
+                    <a href="/stocks/pricechart/large" class="border-0 btn m0p0 pr-3" id="butt__large__graff" >
+                        <img src="/static/img/arrow/zoom-arrow.svg" height="15px" width="15px" alt="zoom-arrow">
+                    </a>
+                </div>
+
+                <div>
+                    <p class="pt-4">
+                        Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops and sells consumer electronics, computer software, and online services. 
+                        It is considered one of the Big Five companies in the U.S. information technology industry, along with Amazon, Google, Microsoft, and Facebook
+                
+                    </p>
+                </div> 
+            </div>
+           
+        </div>
+
+        <!-- <div class="col-lg-12  m0p0">
+            <div class="col-lg-6 mx-auto">
+                <p>
+                    Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops and sells consumer electronics, computer software, and online services. 
+                    It is considered one of the Big Five companies in the U.S. information technology industry, along with Amazon, Google, Microsoft, and Facebook
+            
+                </p>
+            </div>
+            
+        </div> -->
+           
+    </div>
+
+</div>
+
+     
+        <!-- COments -->
+
+        {% include 'stocks/commentSection.html' %}
+
+
+
+    </div>
+    
+    
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/autocomplete.js')}}"></script>
+    <script type="text/javascript">
+        $('.input_1').click(function(){
+            $(this).val('').change(); 
+        });
+
+        $(document).ready(function(){
+            // $.post('/likee', {comment_id: 6, csrf_token: $("[name='csrf_token']").val()}, function(response){console.log(response)})
+            if ( document.title == 'JYforum') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Stocks Dividends') {
+                let text = $('#table_dividends').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Stock News') {
+                let text = $('#table_news').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Price Chart') {
+                let text = $('#table_price').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Trading Ideas') {
+                let text = $('#table_trading').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Major Holders') {
+                let text = $('#table_major').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Financials') {
+                let text = $('#table_financials').text();
+                $('#span_select').text(text);
+            }
+        });
+    
+    </script>
+{% endblock %}
+
+{% block active2%}
+active
+{% endblock %}

@@ -1,0 +1,774 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Commodities
+{% endblock %}
+
+{% block body%}
+<div class="background__main2"></div>
+<div class="background__main3" ></div>
+<div class="container-fluid position__rel" style="height: 100vh;">
+    <div class="row m0p0 ">
+        <div class="col-lg-12 m0p0">
+            <!-- TradingView Widget BEGIN -->
+   <div class="tradingview-widget-container">
+       <div class="tradingview-widget-container__widget"></div>
+       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+       {
+       "symbols": [
+         {
+           "proName": "FOREXCOM:SPXUSD",
+           "title": "S&P 500"
+         },
+         {
+           "proName": "FOREXCOM:NSXUSD",
+           "title": "Nasdaq 100"
+         },
+         {
+           "proName": "FX_IDC:EURUSD",
+           "title": "EUR/USD"
+         },
+         {
+           "description": "DOW Jones",
+           "proName": "FOREXCOM:DJI"
+         },
+         {
+           "description": "Tesla Inc.",
+           "proName": "NASDAQ:TSLA"
+         },
+         {
+           "description": "NIO INC",
+           "proName": "NYSE:NIO"
+         },
+         {
+           "description": "SFOR otc pink",
+           "proName": "OTC:SFOR"
+         },
+         {
+           "description": "Amazon com inc",
+           "proName": "NASDAQ:AMZN"
+         },
+         {
+           "description": "AMD inc.",
+           "proName": "NASDAQ:AMD"
+         },
+         {
+           "description": "Apple inc.",
+           "proName": "NASDAQ:AAPL"
+         }
+       ],
+       "showSymbolLogo": true,
+       "colorTheme": "light",
+       "isTransparent": true,
+       "displayMode": "adaptive",
+       "locale": "en"
+     }
+       </script>
+     </div>
+     <!-- TradingView Widget END -->
+       </div>
+    </div>
+    
+    
+    <div class="row m0p0" >
+
+        
+
+
+
+        <div class="col col-12 col-lg-2 offset-lg-3 d-none d-lg-block" >
+    
+            
+    
+            <center>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container shadow1">
+                    <div class="tradingview-widget-container__widget"></div>
+    
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "NYMEX:NG1!",
+                                    "width": "100%",
+                                        "height": "100%",
+                                            "locale": "en",
+                                                "dateRange": "12m",
+                                                    "colorTheme": "light",
+                                                        "trendLineColor": "#37a6ef",
+                                                            "underLineColor": "#E3F2FD",
+                                                                "isTransparent": false,
+                                                                    "autosize": true,
+                                                                        "largeChartUrl": "https://jy.com.ua/exchange/commodities"
+                            }
+                        </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </center>
+    
+    
+        </div>
+    
+    
+    
+    
+        <div class="col col-12 col-lg-2 d-none d-lg-block">
+    
+    
+    
+    
+            <center>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container shadow1" style="float:right">
+                    <div class="tradingview-widget-container__widget" style="float:right"></div>
+    
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "CURRENCYCOM:OIL_CRUDE",
+                                    "width": "100%",
+                                        "height": "100%",
+                                            "locale": "en",
+                                                "dateRange": "12m",
+                                                    "colorTheme": "light",
+                                                        "trendLineColor": "#37a6ef",
+                                                            "underLineColor": "#E3F2FD",
+                                                                "isTransparent": false,
+                                                                    "autosize": true,
+                                                                        "largeChartUrl": "https://jy.com.ua/exchange"
+                            }
+                        </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </center>
+    
+    
+        </div>
+    
+    
+    
+    
+        <div class="col col-12 col-lg-2 d-none d-lg-block">
+    
+    
+    
+            
+    
+    
+            <center>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container shadow1" style="float:left">
+                    <div class="tradingview-widget-container__widget" style="float:left"></div>
+    
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "TVC:GOLD",
+                                    "width": "100%",
+                                        "height": "100%",
+                                            "locale": "en",
+                                                "dateRange": "12m",
+                                                    "colorTheme": "light",
+                                                        "trendLineColor": "#37a6ef",
+                                                            "underLineColor": "#E3F2FD",
+                                                                "isTransparent": false,
+                                                                    "autosize": true,
+                                                                        "largeChartUrl": "https://jy.com.ua/exchange"
+                            }
+                        </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </center>
+    
+    
+        </div>
+    
+    
+    </div>
+    
+    <div class="row m0p0 " >
+   
+    
+    
+        <div class="col col-12 col-lg-6 offset-lg-3 d-none d-lg-block mt-4   pr-0" style="height: 55vh; overflow-y: scroll;">
+    
+    
+    
+            
+    
+    
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container " >
+                <div class="tradingview-widget-container__widget"></div>
+    
+                <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                        {
+                            "width": "100%",
+                                "height": 2300,
+                                    "symbolsGroups": [
+                                        {
+                                            "name": "Energies",
+                                            "symbols": [
+                                                {
+                                                    "name": "NYMEX:CL1!",
+                                                    "displayName": "Crude Oil WTI"
+                                                },
+                                                {
+                                                    "name": "NYMEX:BB1!",
+                                                    "displayName": "Crude Oil Brent"
+                                                },
+                                                {
+                                                    "name": "NYMEX:NG1!",
+                                                    "displayName": "Natural Gas"
+                                                },
+                                                {
+                                                    "name": "NYMEX:RB1!",
+                                                    "displayName": "Gasoline RBOB"
+                                                },
+                                                {
+                                                    "name": "NYMEX:HO1!",
+                                                    "displayName": "Heating Oil"
+                                                },
+                                                {
+                                                    "name": "NYMEX:AEZ1!",
+                                                    "displayName": "Ethanol"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Metals",
+                                            "symbols": [
+                                                {
+                                                    "name": "COMEX:GC1!",
+                                                    "displayName": "Gold"
+                                                },
+                                                {
+                                                    "name": "COMEX:SI1!",
+                                                    "displayName": "Silver"
+                                                },
+                                                {
+                                                    "name": "COMEX:HG1!",
+                                                    "displayName": "High Grade Copper"
+                                                },
+                                                {
+                                                    "name": "NYMEX:PL1!",
+                                                    "displayName": "Platinum"
+                                                },
+                                                {
+                                                    "name": "MOEX:PD1!",
+                                                    "displayName": "Palladium"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Grains",
+                                            "symbols": [
+                                                {
+                                                    "name": "CBOT:ZC1!",
+                                                    "displayName": "Corn"
+                                                },
+                                                {
+                                                    "name": "CBOT:ZS1!",
+                                                    "displayName": "Soybean"
+                                                },
+                                                {
+                                                    "name": "CBOT:ZW1!",
+                                                    "displayName": "Wheat"
+                                                },
+                                                {
+                                                    "name": "CBOT:ZO1!",
+                                                    "displayName": "Oats"
+                                                },
+                                                {
+                                                    "name": "CBOT:ZR1!",
+                                                    "displayName": "Rice"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Meats",
+                                            "symbols": [
+                                                {
+                                                    "name": "CME:LE1!",
+                                                    "displayName": "Live Cattle"
+                                                },
+                                                {
+                                                    "name": "CME:GF1!",
+                                                    "displayName": "Feeder Cattle"
+                                                },
+                                                {
+                                                    "name": "CME:HE1!",
+                                                    "displayName": "Lean Hogs"
+                                                },
+                                                {
+                                                    "name": "CME:DC1!",
+                                                    "displayName": "Milk"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Financials",
+                                            "symbols": [
+                                                {
+                                                    "name": "CBOT:ZB1!",
+                                                    "displayName": "T-Bond"
+                                                },
+                                                {
+                                                    "name": "CBOT:UB1!",
+                                                    "displayName": "Ultra T-Bond"
+                                                },
+                                                {
+                                                    "name": "CBOT:ZN1!",
+                                                    "displayName": "10-Year T-Note"
+                                                },
+                                                {
+                                                    "name": "CBOT:TN1!",
+                                                    "displayName": "Ultra 10-Year T-Note"
+                                                },
+                                                {
+                                                    "name": "CBOT:ZF1!",
+                                                    "displayName": "5-Year T-Note"
+                                                },
+                                                {
+                                                    "name": "CBOT:ZT1!",
+                                                    "displayName": "2-Year T-Note"
+                                                },
+                                                {
+                                                    "name": "CBOT:ZQ1!",
+                                                    "displayName": "30-Day Fed Funds"
+                                                },
+                                                {
+                                                    "name": "CME:GE1!",
+                                                    "displayName": "Eurodollar"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Softs",
+                                            "symbols": [
+                                                {
+                                                    "name": "NYMEX:TT1!",
+                                                    "displayName": "Cotton"
+                                                },
+                                                {
+                                                    "name": "NYMEX:KT1!",
+                                                    "displayName": "Coffee"
+                                                },
+                                                {
+                                                    "name": "NYMEX:YO1!",
+                                                    "displayName": "Suggar"
+                                                },
+                                                {
+                                                    "name": "NYMEX:CJ1!",
+                                                    "displayName": "Cocoa"
+                                                },
+                                                {
+                                                    "name": "CME:LBS1!",
+                                                    "displayName": "Lumber"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Indicies",
+                                            "symbols": [
+                                                {
+                                                    "name": "CME_MINI:ES1!",
+                                                    "displayName": "S&P 500"
+                                                },
+                                                {
+                                                    "name": "CME_MINI:NQ1!",
+                                                    "displayName": "Nasdaq 100"
+                                                },
+                                                {
+                                                    "name": "CBOT_MINI:YM1!",
+                                                    "displayName": "Dow 30"
+                                                },
+                                                {
+                                                    "name": "CME_MINI:RTY1!",
+                                                    "displayName": "Russel 2000"
+                                                },
+                                                {
+                                                    "name": "CME_MINI:EMD1!",
+                                                    "displayName": "S&P 400 Midacap"
+                                                },
+                                                {
+                                                    "name": "CBOE_EOD:VX1!",
+                                                    "displayName": "S&P 500 VIX"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Currencies",
+                                            "symbols": [
+                                                {
+                                                    "name": "ICEUS:DX1!",
+                                                    "displayName": "U.S. Dollar Index"
+                                                },
+                                                {
+                                                    "name": "CME:BTC1!",
+                                                    "displayName": "Bitcoin CME"
+                                                },
+                                                {
+                                                    "name": "CME:6B1!",
+                                                    "displayName": "British Pound"
+                                                },
+                                                {
+                                                    "name": "CME:6C1!",
+                                                    "displayName": "Canadian Dollar"
+                                                },
+                                                {
+                                                    "name": "CME:6J1!",
+                                                    "displayName": "Japanese Yen"
+                                                },
+                                                {
+                                                    "name": "CME:6S1!",
+                                                    "displayName": "Swiss Franc"
+                                                },
+                                                {
+                                                    "name": "CME:6E1!",
+                                                    "displayName": "Euro FX"
+                                                },
+                                                {
+                                                    "name": "CME:6A1!",
+                                                    "displayName": "Australian Dollar"
+                                                },
+                                                {
+                                                    "name": "CME:6M1!",
+                                                    "displayName": "Mexican Peso"
+                                                },
+                                                {
+                                                    "name": "CME:6N1!",
+                                                    "displayName": "New Zealand Dollar"
+                                                },
+                                                {
+                                                    "name": "CME:6Z1!",
+                                                    "displayName": "South African Rand"
+                                                },
+                                                {
+                                                    "name": "CME:6L1!",
+                                                    "displayName": "Brazilian Real"
+                                                },
+                                                {
+                                                    "name": "CME:6R1!",
+                                                    "displayName": "Russian Ruble"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                        "colorTheme": "light",
+                                            "isTransparent": false,
+                                                "locale": "en",
+                                                    "largeChartUrl": "https://jy.com.ua/exchange/commodities"
+                        }
+                    </script>
+            </div>
+            <!-- TradingView Widget END -->
+    
+    
+    
+    
+            
+    
+    
+        </div>
+    
+    
+    
+    
+        <div class="col col-12 col-lg-6 offset-lg-3 d-lg-none">
+    
+    
+    
+            
+    
+    
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+    
+                <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                        {
+                            "colorTheme": "light",
+                                "dateRange": "12m",
+                                    "showChart": true,
+                                        "locale": "en",
+                                            "width": "100%",
+                                                "height": 700,
+                                                    "largeChartUrl": "https://jy.com.ua/exchange/commodities",
+                                                        "isTransparent": false,
+                                                            "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
+                                                                "plotLineColorFalling": "rgba(33, 150, 243, 1)",
+                                                                    "gridLineColor": "rgba(240, 243, 250, 1)",
+                                                                        "scaleFontColor": "rgba(120, 123, 134, 1)",
+                                                                            "belowLineFillColorGrowing": "rgba(33, 150, 243, 0.12)",
+                                                                                "belowLineFillColorFalling": "rgba(33, 150, 243, 0.12)",
+                                                                                    "symbolActiveColor": "rgba(33, 150, 243, 0.12)",
+                                                                                        "tabs": [
+                                                                                            {
+                                                                                                "title": "Energies",
+                                                                                                "symbols": [
+                                                                                                    {
+                                                                                                        "s": "NYMEX:CL1!",
+                                                                                                        "d": "Crude Oil WTI"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "NYMEX:BB1!",
+                                                                                                        "d": "Crude Oil Brent"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "NYMEX:NG1!",
+                                                                                                        "d": "Natural Gas"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "NYMEX:RB1!",
+                                                                                                        "d": "Gasoline RBOB"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "NYMEX:HO1!",
+                                                                                                        "d": "Heating Oil"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "NYMEX:AEZ1!",
+                                                                                                        "d": "Ethanol"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            {
+                                                                                                "title": "Metals",
+                                                                                                "symbols": [
+                                                                                                    {
+                                                                                                        "s": "COMEX:GC1!",
+                                                                                                        "d": "Gold"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "COMEX:SI1!",
+                                                                                                        "d": "Silver"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "COMEX:HG1!",
+                                                                                                        "d": "High Grade Copper"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "NYMEX:PL1!",
+                                                                                                        "d": "Platinum"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "MOEX:PD1!",
+                                                                                                        "d": "Palladium"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            {
+                                                                                                "title": "Grains",
+                                                                                                "symbols": [
+                                                                                                    {
+                                                                                                        "s": "CBOT:ZC1!",
+                                                                                                        "d": "Corn"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOT:ZS1!",
+                                                                                                        "d": "Soybean"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOT:ZW1!",
+                                                                                                        "d": "Wheat"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOT:ZO1!",
+                                                                                                        "d": "Oats"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOT:ZR1!",
+                                                                                                        "d": "Rice"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            {
+                                                                                                "title": "Meats",
+                                                                                                "symbols": [
+                                                                                                    {
+                                                                                                        "s": "CME:LE1!",
+                                                                                                        "d": "Live Cattle"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:GF1!",
+                                                                                                        "d": "Feeder Cattle"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:HE1!",
+                                                                                                        "d": "Lean Hogs"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:DC1!",
+                                                                                                        "d": "Milk"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            {
+                                                                                                "title": "Financials",
+                                                                                                "symbols": [
+                                                                                                    {
+                                                                                                        "s": "CBOT:ZB1!",
+                                                                                                        "d": "T-Bond"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOT:UB1!",
+                                                                                                        "d": "Ultra T-Bond"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOT:ZN1!",
+                                                                                                        "d": "10-Year T-Note"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOT:TN1!",
+                                                                                                        "d": "Ultra 10-Year T-Note"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOT:ZF1!",
+                                                                                                        "d": "5-Year T-Note"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOT:ZT1!",
+                                                                                                        "d": "2-Year T-Note"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOT:ZQ1!",
+                                                                                                        "d": "30-Day Fed Funds"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:GE1!",
+                                                                                                        "d": "Eurodollar"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            {
+                                                                                                "title": "Softs",
+                                                                                                "symbols": [
+                                                                                                    {
+                                                                                                        "s": "NYMEX:TT1!",
+                                                                                                        "d": "Cotton"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "NYMEX:KT1!",
+                                                                                                        "d": "Coffee"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "NYMEX:YO1!",
+                                                                                                        "d": "Suggar"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "NYMEX:CJ1!",
+                                                                                                        "d": "Cocoa"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:LBS1!",
+                                                                                                        "d": "Lumber"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            {
+                                                                                                "title": "Indicies",
+                                                                                                "symbols": [
+                                                                                                    {
+                                                                                                        "s": "CME_MINI:ES1!",
+                                                                                                        "d": "S&P 500"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME_MINI:NQ1!",
+                                                                                                        "d": "Nasdaq 100"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOT_MINI:YM1!",
+                                                                                                        "d": "Dow 30"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME_MINI:RTY1!",
+                                                                                                        "d": "Russel 2000"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME_MINI:EMD1!",
+                                                                                                        "d": "S&P 400 Midacap"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CBOE_EOD:VX1!",
+                                                                                                        "d": "S&P 500 VIX"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            {
+                                                                                                "title": "Currencies",
+                                                                                                "symbols": [
+                                                                                                    {
+                                                                                                        "s": "ICEUS:DX1!",
+                                                                                                        "d": "U.S. Dollar Index"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:BTC1!",
+                                                                                                        "d": "Bitcoin CME"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:6B1!",
+                                                                                                        "d": "British Pound"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:6C1!",
+                                                                                                        "d": "Canadian Dollar"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:6J1!",
+                                                                                                        "d": "Japanese Yen"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:6S1!",
+                                                                                                        "d": "Swiss Franc"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:6E1!",
+                                                                                                        "d": "Euro FX"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:6A1!",
+                                                                                                        "d": "Australian Dollar"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:6M1!",
+                                                                                                        "d": "Mexican Peso"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:6N1!",
+                                                                                                        "d": "New Zealand Dollar"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:6Z1!",
+                                                                                                        "d": "South African Rand"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:6L1!",
+                                                                                                        "d": "Brazilian Real"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "s": "CME:6R1!",
+                                                                                                        "d": "Russian Ruble"
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        ]
+                        }
+                    </script>
+            </div>
+            <!-- TradingView Widget END -->
+    
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
+{% block active2%}
+active
+{% endblock %}

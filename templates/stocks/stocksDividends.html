@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dividends
+{% endblock %}
+
+{% block body%}
+    <div class="background__main2"></div>
+    <!-- <div class="background__main3"></div> -->
+    <div class="container-fluid position__rel background__white m0p0" style="height: 100vh;">
+        <div>
+             <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "S&P 500"
+      },
+      {
+        "proName": "FOREXCOM:NSXUSD",
+        "title": "Nasdaq 100"
+      },
+      {
+        "proName": "FX_IDC:EURUSD",
+        "title": "EUR/USD"
+      },
+      {
+        "description": "DOW Jones",
+        "proName": "FOREXCOM:DJI"
+      },
+      {
+        "description": "Tesla Inc.",
+        "proName": "NASDAQ:TSLA"
+      },
+      {
+        "description": "NIO INC",
+        "proName": "NYSE:NIO"
+      },
+      {
+        "description": "SFOR otc pink",
+        "proName": "OTC:SFOR"
+      },
+      {
+        "description": "Amazon com inc",
+        "proName": "NASDAQ:AMZN"
+      },
+      {
+        "description": "AMD inc.",
+        "proName": "NASDAQ:AMD"
+      },
+      {
+        "description": "Apple inc.",
+        "proName": "NASDAQ:AAPL"
+      }
+    ],
+    "showSymbolLogo": true,
+    "colorTheme": "light",
+    "isTransparent": true,
+    "displayMode": "adaptive",
+    "locale": "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+        </div>
+        <div class="row m0p0">
+            <div class="col-lg-12  m0p0">
+
+                <div class="pt-2 offset-lg-1">
+                    <a href="/home">home/</a>
+                    <a href="#" style="color: #425800;">stocks/ dividends </a>
+                </div>
+
+                <div class="col-lg-6 m0p0 d-flex justify-content-center mx-auto" id="select_markets_xl">
+                        <div class="  d-flex justify-content-between  markets__buttons mb-4 mt-4" style="width: 100%;">
+                            <a href="/stocks/pricechart?stock={{ companyTicker }}" class="btn btn-light " id="table_price" role="button">PRICE CHART</a>
+                            <a href="/stocks/tradingideas?stock={{ companyTicker }}" class="btn btn-light" id="table_trading" role="button">TRADING IDEAS</a>
+                            <a href="/stocks/news?stock={{ companyTicker }}" class="btn btn-light" id="table_news" role="button">NEWS</a>
+                            <a href="/stocks/dividends?stock={{ companyTicker }}" class="btn btn-light active" id="table_dividends" role="button">DIVIDENDS</a>
+                            <a href="/stocks/majorholders?stock={{ companyTicker }}" class="btn btn-light" id="table_major" role="button">MAJOR HOLDERS</a>
+                            <a href="/stocks/financials?stock={{ companyTicker }}" class="btn btn-light" id="table_financials" role="button">FINANCIALS</a>
+                           
+                        </div>
+                        
+                </div>
+
+
+                <div class="col col-12 m0p0 d-flex justify-content-center" id="select_markets" >
+                    <div class="selectlink pt-3"  style="width: 100%;"> 
+                        <div class="btn-group border" style="width: 100%;">
+                            <button type="button" class="btn dropdown-toggle bgcolor border-0 mx-auto " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
+                                <span id="span_select"> PRICE CHART</span>
+                            </button>
+                            <div class="dropdown-menu " style="width: 100%;">
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/pricechart?stock={{ companyTicker }}" class="btn btn-" id="table_price" role="button">PRICE CHART</a>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/tradingideas?stock={{ companyTicker }}" class="btn" id="table_trading" role="button">TRADING IDEAS</a>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/news?stock={{ companyTicker }}" class="btn" id="table_news" role="button">NEWS</a>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/dividends?stock={{ companyTicker }}" class="btn btn-light active" id="table_dividends" role="button">DIVIDENDS</a>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/majorholders?stock={{ companyTicker }}" class="btn" id="table_major" role="button">MAJOR HOLDERS</a>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="/stocks/financials?stock={{ companyTicker }}" class="btn" id="table_financials" role="button">FINANCIALS</a>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col col-12 col-lg-6 m0p0 mx-auto">
+                    
+                    <div class="d-flex p-1">
+                        <div>
+                            <label class="tickerInput pl-1" for="ticker"> <b>Company Ticker :</b>  </label>
+                        </div>
+                        <div style="width: 100%;">
+                            <input id="autocomplete" class="form-control input_1 shadow1" type="text" name="ticker" style="border-radius:0 0 0 0;width: 100%;border-radius: 5px;"
+                            value="{{ companyTicker }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex m0p0">
+                
+                <!--  tabs big monitors  -->
+    
+            <div class="col-lg-12 d-flex justify-content-center m0p0 mt-2">
+            
+                <div class="col col-12 col-lg-6 offset-lg-3 d-lg-none m0p0" >
+                    <table class="table table-hover table-light table-sm bgcolor m0p0 border shadow1" style="width:100%">
+                        <thead class="thead-dark">
+                            <th colspan="2" class="text-center">Dividends and splits</th>
+                        </thead>
+        
+                        {% for d in dividend.values  %}
+                        <tr>
+                            <td>{{d[0]}}</td>
+                            <td>{{d[1]}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+        
+        
+                <div class="col col-lg-6 d-none shadow1 d-lg-block mx-auto" style="background: white; border-radius: 7px;">
+                    <table class="m0p0 table table-hover" style="width:100%;">
+                        <thead>
+                            <th colspan="2" class="text-center">
+                                <h2>
+                                    Dividends and splits
+                                </h2>
+                            </th>
+                        </thead>
+        
+                        {% for d in dividend.values   %}
+                        <tr>
+                            <td>{{d[0]}}</td>
+                            <td>{{d[1]}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+        
+         
+                  
+            </div>
+
+
+        <!-- COments -->
+
+            {% include 'stocks/commentSection.html' %}
+        </div>
+                                                                   <!-- FOOTER -->
+   
+          <div class="row m0p0" style="display: none;">
+        
+            <div class="d-flex col-12 m0p0 justify-content-center shadow-sm " style="position:absolute;bottom:0;left:0; height: 90px;z-index: 900;">
+                <div class="col-lg-10 d-flex justify-content-center m0p0" style="border-top:1px solid #3D1D00">
+                  <!-- <div  style="position: absolute;top: -30px; left: -20px; z-index: 345; "> 
+                    <a href="/home" style="width: 100%; height: 100%;">
+                      
+                      <img src="{{ url_for('static', filename='img/icons/logo.svg')}}" style="height: 150px;" alt="logo">
+                    </a>
+                      
+                  </div> -->
+              
+                  <nav class="navbar navbar-expand-lg navbar-light m0p0" style="width: 100%; height: 100%;"  >
+              
+                        
+                    <div class="container main_menu" id="slow_nav">
+                      <ul class="navbar-nav container justify-content-center text-center m0p0" >
+                                
+                        <li class="nav-item ">
+                          <a class="nav-link text-uppercase" href="/home" data-translate-key="HOME">Home</a>
+                        </li>
+                         
+                        <li class="nav-item align-self-center pr-5 pl-5"> | </li>
+              
+                        <li class="nav-item " id="slow_nav" style="position: relative;">
+                          <div class="nav-link text-uppercase" data-translate-key="MARKETS" >Markets</div>
+                               
+                            <ul class="dropdown-menu text-uppercase ">
+                  
+                              <li class="dropdown-link"><a class="p-2" href="/stocks" data-translate-key="STOCKS">Stocks</a></li>
+                              <li class="dropdown-link pt-2 pb-2"><a class="p-2 pt-4 pb-4" href="/commodities" data-translate-key="COMMODITIES">Commodities</a></li>
+                              <li class="dropdown-link"><a class="p-2" href="/currencies" data-translate-key="CURRENCIES">Currencies</a></li>
+              
+                            </ul>                 
+                        </li>
+                         
+                        <li class="nav-item align-self-center pr-5 pl-5"> | </li>
+              
+                        <li class="nav-item " id="slow_nav" style="position: relative;">
+                          <div class="nav-link text-uppercase"  id="navbarDropdownMenuLink" data-translate-key="NEWS" aria-haspopup="true" aria-expanded="false">News</div>
+                                          
+                            <ul class="dropdown-menu text-uppercase " style="min-width: 12rem;">
+                              <li class="dropdown-link "><a class="p-2" href="/marketnews" data-translate-key="MARKET_NEWS">Market news</a></li>
+                              <li class="dropdown-link pt-2 pb-2"><a class="p-2" href="/worldnews" data-translate-key="WORLD_NEWS">World news</a></li>
+                              <li class="dropdown-link "><a class="p-2" href="/tradingcalendar" data-translate-key="TRADING_CALENDAR">Trading calendar</a></li>           
+                              
+                            </ul>
+                                                       
+                        </li>
+                                
+                               
+                      </ul>
+                      
+                    </div>
+                            
+                  </nav>
+                  <div class=" navbar navbar-expand-lg navbar-light m0p0 " id="slow_nav" style="position: absolute; top: 25px; right: -10px;" >
+                    <ul class="d-flex m0p0" style="list-style: none;">
+                        <a class="p-2" href="http://twitter.com">
+                            <img src="{{ url_for('static', filename='img/icons/Twitter.svg')}}" alt="twitter_picture">
+                        </a>
+                        <a class="p-2" href="http://instagram.com">
+                            <img src="{{ url_for('static', filename='img/icons/Instagram.svg')}}" alt="instagram_picture">
+                        </a>
+                        <a class="p-2" href="http://facebook.com">
+                            <img src="{{ url_for('static', filename='img/icons/Facebook2.0.svg')}}" alt="facebook_picture">
+                        </a>
+                        <a class="p-2" href="http://youtube.com">
+                            <img src="{{ url_for('static', filename='img/icons/youtube_brown.svg')}}" alt="facebook_picture">
+                        </a>
+            
+                    </ul>
+                    
+            
+            
+            
+                    
+                    
+                  </div>    
+                </div>
+                
+                     
+            </div>
+        
+        </div>
+    </div>
+
+    
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/autocomplete.js')}}"></script>
+    <script type="text/javascript">
+        $('.input_1').click(function(){
+            $(this).val('').change(); 
+        });
+
+        $(document).ready(function(){
+            if ( document.title == 'JYforum') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Dividends') {
+                let text = $('#table_dividends').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Stock News') {
+                let text = $('#table_news').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Price Chart') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Trading Ideas') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Major Holders') {
+                let text = $('#table_forum').text();
+                $('#span_select').text(text);
+            }
+            if ( document.title == 'Financials') {
+                let text = $('#table_financials').text();
+                $('#span_select').text(text);
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block active2%}
+active
+{% endblock %}

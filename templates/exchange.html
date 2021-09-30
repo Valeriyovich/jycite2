@@ -1,0 +1,398 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Exchange
+{% endblock %}
+
+{% block body%}
+<div class="row">
+    <div class="col col-12 col-lg-2 offset-lg-3 d-none d-lg-block">
+        <div class="p-3">
+        </div>
+        <center>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+
+                <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                        {
+                            "symbol": "AMEX:SPY",
+                                "width": "100%",
+                                    "height": "100%",
+                                        "locale": "en",
+                                            "dateRange": "12m",
+                                                "colorTheme": "light",
+                                                    "trendLineColor": "#37a6ef",
+                                                        "underLineColor": "#E3F2FD",
+                                                            "isTransparent": false,
+                                                                "autosize": true,
+                                                                    "largeChartUrl": "https://jy.com.ua/exchange"
+                        }
+                    </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </center>
+    </div>
+    <div class="col col-12 col-lg-2 d-none d-lg-block">
+        <div class="p-3">
+        </div>
+        <center>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container" style="float:right">
+                <div class="tradingview-widget-container__widget" style="float:right"></div>
+
+                <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                        {
+                            "symbol": "CURRENCYCOM:OIL_CRUDE",
+                                "width": "100%",
+                                    "height": "100%",
+                                        "locale": "en",
+                                            "dateRange": "12m",
+                                                "colorTheme": "light",
+                                                    "trendLineColor": "#37a6ef",
+                                                        "underLineColor": "#E3F2FD",
+                                                            "isTransparent": false,
+                                                                "autosize": true,
+                                                                    "largeChartUrl": "https://jy.com.ua/exchange"
+                        }
+                    </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </center>
+    </div>
+    <div class="col col-12 col-lg-2 d-none d-lg-block">
+
+        <div class="p-3">
+        </div>
+
+        <center>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container" style="float:left">
+                <div class="tradingview-widget-container__widget" style="float:left"></div>
+
+                <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                        {
+                            "symbol": "TVC:GOLD",
+                                "width": "100%",
+                                    "height": "100%",
+                                        "locale": "en",
+                                            "dateRange": "12m",
+                                                "colorTheme": "light",
+                                                    "trendLineColor": "#37a6ef",
+                                                        "underLineColor": "#E3F2FD",
+                                                            "isTransparent": false,
+                                                                "autosize": true,
+                                                                    "largeChartUrl": "https://jy.com.ua/exchange"
+                        }
+                    </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </center>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col col-12 col-lg-6 offset-lg-3 d-none d-lg-block">
+        <div class="p-3">
+        </div>
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+
+            <script type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                    {
+                        "width": "100%",
+                            "height": 1100,
+                                "symbolsGroups": [
+                                    {
+                                        "name": "Indices",
+                                        "originalName": "Indices",
+                                        "symbols": [
+                                            {
+                                                "name": "FOREXCOM:SPXUSD",
+                                                "displayName": "S&P 500"
+                                            },
+                                            {
+                                                "name": "FOREXCOM:NSXUSD",
+                                                "displayName": "Nasdaq 100"
+                                            },
+                                            {
+                                                "name": "FOREXCOM:DJI",
+                                                "displayName": "Dow 30"
+                                            },
+                                            {
+                                                "name": "INDEX:NKY",
+                                                "displayName": "Nikkei 225"
+                                            },
+                                            {
+                                                "name": "INDEX:DEU30",
+                                                "displayName": "DAX Index"
+                                            },
+                                            {
+                                                "name": "FOREXCOM:UKXGBP",
+                                                "displayName": "FTSE 100"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Commodities",
+                                        "originalName": "Commodities",
+                                        "symbols": [
+                                            {
+                                                "name": "CME_MINI:ES1!",
+                                                "displayName": "E-Mini S&P"
+                                            },
+                                            {
+                                                "name": "CME:6E1!",
+                                                "displayName": "Euro"
+                                            },
+                                            {
+                                                "name": "COMEX:GC1!",
+                                                "displayName": "Gold"
+                                            },
+                                            {
+                                                "name": "NYMEX:CL1!",
+                                                "displayName": "Crude Oil"
+                                            },
+                                            {
+                                                "name": "NYMEX:NG1!",
+                                                "displayName": "Natural Gas"
+                                            },
+                                            {
+                                                "name": "CBOT:ZC1!",
+                                                "displayName": "Corn"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Bonds",
+                                        "originalName": "Bonds",
+                                        "symbols": [
+                                            {
+                                                "name": "CME:GE1!",
+                                                "displayName": "Eurodollar"
+                                            },
+                                            {
+                                                "name": "CBOT:ZB1!",
+                                                "displayName": "T-Bond"
+                                            },
+                                            {
+                                                "name": "CBOT:UB1!",
+                                                "displayName": "Ultra T-Bond"
+                                            },
+                                            {
+                                                "name": "EUREX:FGBL1!",
+                                                "displayName": "Euro Bund"
+                                            },
+                                            {
+                                                "name": "EUREX:FBTP1!",
+                                                "displayName": "Euro BTP"
+                                            },
+                                            {
+                                                "name": "EUREX:FGBM1!",
+                                                "displayName": "Euro BOBL"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Forex",
+                                        "originalName": "Forex",
+                                        "symbols": [
+                                            {
+                                                "name": "FX:EURUSD"
+                                            },
+                                            {
+                                                "name": "FX:GBPUSD"
+                                            },
+                                            {
+                                                "name": "FX:USDJPY"
+                                            },
+                                            {
+                                                "name": "FX:USDCHF"
+                                            },
+                                            {
+                                                "name": "FX:AUDUSD"
+                                            },
+                                            {
+                                                "name": "FX:USDCAD"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                    "colorTheme": "light",
+                                        "isTransparent": false,
+                                            "locale": "en"
+                    }
+                </script>
+        </div>
+        <!-- TradingView Widget END -->
+        <div class="p-3">
+        </div>
+    </div>
+    <div class="col col-12 col-lg-6 offset-lg-3 d-lg-none">
+        <div class="p-3">
+        </div>
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+
+            <script type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                    {
+                        "colorTheme": "light",PRICE CHART
+TRADING IDEAS
+NEWS
+DIVIDENDS
+MAJOR HOLDERS
+FINANCIALS
+J&Y FORUM
+                            "dateRange": "12m",
+                                "showChart": true,
+                                    "locale": "en",
+                                        "width": "100%",
+                                            "height": "700",
+                                                "largeChartUrl": "https://jy.com.ua/exchange",
+                                                    "isTransparent": false,
+                                                        "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
+                                                            "plotLineColorFalling": "rgba(33, 150, 243, 1)",
+                                                                "gridLineColor": "rgba(240, 243, 250, 1)",
+                                                                    "scaleFontColor": "rgba(120, 123, 134, 1)",
+                                                                        "belowLineFillColorGrowing": "rgba(33, 150, 243, 0.12)",
+                                                                            "belowLineFillColorFalling": "rgba(33, 150, 243, 0.12)",
+                                                                                "symbolActiveColor": "rgba(33, 150, 243, 0.12)",
+                                                                                    "tabs": [
+                                                                                        {
+                                                                                            "title": "Indices",
+                                                                                            "symbols": [
+                                                                                                {
+                                                                                                    "s": "FOREXCOM:SPXUSD",
+                                                                                                    "d": "S&P 500"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "FOREXCOM:NSXUSD",
+                                                                                                    "d": "Nasdaq 100"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "FOREXCOM:DJI",
+                                                                                                    "d": "Dow 30"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "INDEX:NKY",
+                                                                                                    "d": "Nikkei 225"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "INDEX:DEU30",
+                                                                                                    "d": "DAX Index"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "FOREXCOM:UKXGBP",
+                                                                                                    "d": "FTSE 100"
+                                                                                                }
+                                                                                            ],
+                                                                                            "originalTitle": "Indices"
+                                                                                        },
+                                                                                        {
+                                                                                            "title": "Commodities",
+                                                                                            "symbols": [
+                                                                                                {
+                                                                                                    "s": "CME_MINI:ES1!",
+                                                                                                    "d": "E-Mini S&P"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "CME:6E1!",
+                                                                                                    "d": "Euro"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "COMEX:GC1!",
+                                                                                                    "d": "Gold"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "NYMEX:CL1!",
+                                                                                                    "d": "Crude Oil"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "NYMEX:NG1!",
+                                                                                                    "d": "Natural Gas"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "CBOT:ZC1!",
+                                                                                                    "d": "Corn"
+                                                                                                }
+                                                                                            ],
+                                                                                            "originalTitle": "Commodities"
+                                                                                        },
+                                                                                        {
+                                                                                            "title": "Bonds",
+                                                                                            "symbols": [
+                                                                                                {
+                                                                                                    "s": "CME:GE1!",
+                                                                                                    "d": "Eurodollar"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "CBOT:ZB1!",
+                                                                                                    "d": "T-Bond"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "CBOT:UB1!",
+                                                                                                    "d": "Ultra T-Bond"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "EUREX:FGBL1!",
+                                                                                                    "d": "Euro Bund"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "EUREX:FBTP1!",
+                                                                                                    "d": "Euro BTP"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "EUREX:FGBM1!",
+                                                                                                    "d": "Euro BOBL"
+                                                                                                }
+                                                                                            ],
+                                                                                            "originalTitle": "Bonds"
+                                                                                        },
+                                                                                        {
+                                                                                            "title": "Forex",
+                                                                                            "symbols": [
+                                                                                                {
+                                                                                                    "s": "FX:EURUSD"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "FX:GBPUSD"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "FX:USDJPY"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "FX:USDCHF"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "FX:AUDUSD"
+                                                                                                },
+                                                                                                {
+                                                                                                    "s": "FX:USDCAD"
+                                                                                                }
+                                                                                            ],
+                                                                                            "originalTitle": "Forex"
+                                                                                        }
+                                                                                    ]
+                    }
+                </script>
+        </div>
+        <!-- TradingView Widget END -->
+        <div class="p-3">
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block active2%}
+active
+{% endblock %}

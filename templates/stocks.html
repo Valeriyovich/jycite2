@@ -1,0 +1,279 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Stocks
+{% endblock %}
+
+{% block body%}
+<div class="m0p0"  style="padding-top: 100px; height: 100vh;">
+    <div class="row m0p0">
+        
+
+        <div class="col col-12 d-flex justify-content-center col-lg-12 ">
+            <div class="col-lg-6 pb-2">
+                <div class="d-flex">
+                    <label for="ticker"> Company name: </label>
+                    <input autocomplete="off" id="autocomplete" class="form-control" type="text" name="ticker"
+                    style="border-radius:0 0 0 0;width: 100%;" value="{{ ticker }}" placeholder=" {{ ticker }}">
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center m0p0">
+        <!-- <div class="col-lg-9 d-flex justify-content-center" >
+                <div class="btn-group d-flex buttons_1">
+                    <a href="/stocks/pricechart" class="btn" id="table_price" role="button">PRICE CHART</a>
+                    <a href="/stocks/tradingideas" class="btn" id="table_trading" role="button">TRADING IDEAS</a>
+                    <a href="/stocks/news" class="btn" id="table_news" role="button">NEWS</a>
+                    <a href="/stocks/dividends" class="btn" id="table_dividends" role="button">DIVIDENDS</a>
+                    <a href="/stocks/majorholders" class="btn" id="table_major" role="button">MAJOR HOLDERS</a>
+                    <a href="/stocks/financials" class="btn" id="table_financials" role="button">FINANCIALS</a>
+                    <a href="/stocks/jyforum" class="btn" id="table_forum" role="button">J&Y FORUM</a>
+                </div>
+
+        </div>  -->
+        <!--  tabs big monitors  -->
+
+        <div class="col-lg-12 d-flex justify-content-center m0p0">
+            <div class="col-lg-10 d-flex justify-content-center d-lg-none">
+                <div class="col-lg-12 m0p0 mt-5">
+                    <div class="col-lg-12 m0p0 d-flex ">
+                        <div class="col-lg-4">
+                            <h2 class="text-center">NASDAQ</h2>
+                            <div class="row">
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    1
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    2
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    3
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    4
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    5
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    6
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    7
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    8
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    9
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    10
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    11
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    12
+                                </div>
+                                <div class="col-lg-4 border"style="height: 100px;">
+                                    13
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    14
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    15
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <h2 class="text-center">DOW JONES</h2>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 border" style="height: 100px;">
+                                        1
+                                    </div>
+                                    <div class="col-lg-4 border"style="height: 100px;">
+                                        2
+                                    </div>
+                                    <div class="col-lg-4 border" style="height: 100px;">
+                                        3
+                                    </div>
+                                    <div class="col-lg-4 border" style="height: 100px;">
+                                        4
+                                    </div>
+                                    <div class="col-lg-4 border" style="height: 100px;">
+                                        5
+                                    </div>
+                                    <div class="col-lg-4 border"style="height: 100px;">
+                                        6
+                                    </div>
+                                    <div class="col-lg-4 border" style="height: 100px;">
+                                        7
+                                    </div>
+                                    <div class="col-lg-4 border" style="height: 100px;">
+                                        8
+                                    </div>
+                                    <div class="col-lg-4 border" style="height: 100px;">
+                                        9
+                                    </div>
+                                    <div class="col-lg-4 border"style="height: 100px;">
+                                        10
+                                    </div>
+                                    <div class="col-lg-4 border" style="height: 100px;">
+                                        11
+                                    </div>
+                                    <div class="col-lg-4 border" style="height: 100px;">
+                                        12
+                                    </div>
+                                    <div class="col-lg-4 border"style="height: 100px;">
+                                        13
+                                    </div>
+                                    <div class="col-lg-4 border" style="height: 100px;">
+                                        14
+                                    </div>
+                                    <div class="col-lg-4 border" style="height: 100px;">
+                                        15
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <h2 class="text-center">S&P 500</h2>
+                            <div class="row">
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    1
+                                </div>
+                                <div class="col-lg-4 border"style="height: 100px;">
+                                    2
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    3
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    4
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    5
+                                </div>
+                                <div class="col-lg-4 border"style="height: 100px;">
+                                    6
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    7
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    8
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    9
+                                </div>
+                                <div class="col-lg-4 border"style="height: 100px;">
+                                    10
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    11
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    12
+                                </div>
+                                <div class="col-lg-4 border"style="height: 100px;">
+                                    13
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    14
+                                </div>
+                                <div class="col-lg-4 border" style="height: 100px;">
+                                    15
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                 </div>
+               </div>
+
+
+
+
+
+
+
+
+                    <div class="container ">
+                        <div class="row ">
+                        {% for ticker in tickers %}
+                                       
+                                        
+                        
+                            <div class="col-lg-4 border p-4" style="height: 100px;">
+                                <div class="text-center">
+                                    {{ ticker.ticker.symbol }}
+                                </div>
+                              
+                                <div class="text-center" id="{{ticker.ticker.symbol}}">
+                                    
+                                    <p class="{{ticker.ticker.symbol}}">
+                                        {{ticker.ticker.last_price}}
+                                    </p>
+                                </div>
+                            </div>
+                            
+                      
+
+
+                        {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+               
+            </div> 
+
+        </div>
+           
+    </div>
+    <script src="https://cdn.socket.io/3.1.1/socket.io.min.js" integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script>
+    <script>
+
+    let $arr_price = $('#hot_map div[name*="price"]');
+    let $arr_ticker = $('#hot_map div[name*="ticker"]');
+    
+    
+    
+        const socket = io();
+        socket.on('connect', function() {
+            socket.on('message', (msg) => {
+                
+               
+                var data = JSON.parse(msg);
+                if (data) {
+                    var symbol = data['symbol'],
+                    price = data['last_price'];
+                    var old_price = $('.' + symbol).html();
+                    let percent = (price - old_price)/old_price*100 ;
+                    let newPercent = parseFloat(percent).toFixed(3);
+                    
+                    $("#"+symbol).html("<p class='"+ symbol +" m0p0'>"+ price +" </p>  "+ newPercent + '%');
+                    
+                     if (parseFloat(old_price) > parseFloat(price)) {
+                      
+                         $("#"+symbol).parent().css('background', 'red')
+                         
+                     }else {
+                        $("#"+symbol).parent().css('background', 'green')
+                     }
+                    }
+            })
+        });
+    </script>
+    
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/newAutocomplete.js')}}"></script> -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/autocomplete.js')}}"></script>
+    {% endblock %}
+
+    {% block active2%}
+    active
+    {% endblock %}

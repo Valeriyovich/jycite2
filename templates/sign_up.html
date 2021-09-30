@@ -1,0 +1,50 @@
+{% import "bootstrap/wtf.html" as wtf%}
+{% extends 'base.html' %}
+
+{% block title %}
+Sing up
+{% endblock %}
+
+{% block active5%}
+active
+{% endblock %}
+
+{% block body%}
+<div class="background__main2"></div>
+<div class="container-fluid position__rel" style="height: 100vh;">
+  <div class="row  m0p0 ">
+    <div class="col-lg-2 p-3 border bgcolor animate__animated animate__zoomIn" >
+      <h3 class="text-center text-uppercase" data-translate-key="SIGN_UP">Sign Up</h3>
+        <form method="POST" action="/signup">
+          {{ form.hidden_tag() }}
+            <div class="form-group">      
+               <input type="name" class="form-control" id="{{ form.username.label.text }}" name="{{ form.username.label.text }}" aria-describedby="userNameHelp" placeholder="Username"> 
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" id="{{ form.email.label.text }}" name="{{ form.email.label.text }}" aria-describedby="emailHelp" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control " id="{{ form.password.label.text }}" name="{{ form.password.label.text }}" placeholder="Password">
+              <input type="password" class="form-control mt-2 " id="{{ form.passwordConfirm.label.text }}" name="{{ form.passwordConfirm.label.text }}" placeholder="Confirm password">
+            </div>        
+            {% if form.errors %}
+                <div class="text-danger">
+                    {% for field, errors in form.errors.items() %}
+                        {{ ', '.join(errors) }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <button type="submit" class="btn btn-dark text-uppercase" style="width: 100%; " data-translate-key="SIGN_UP"> Sign Up</button>
+
+            {% if message == 'Registration completed, please check your email' %}
+                <div class="text-danger">
+                  {{ message }}
+                </div>
+            {% endif %}
+          </form>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
